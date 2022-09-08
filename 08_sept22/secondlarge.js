@@ -4,6 +4,7 @@
 // output = 21
 
 
+
 function findSecondLargestElement(arr){
     let first = -1 , second = -1;
 
