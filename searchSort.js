@@ -14,6 +14,7 @@ for(let i=0;i<searchArray.length;i++){
     for(let i=0;i<searchArray.length;i++){
      if(searchArray[i] == val){
         console.log(val+ " is on " + [i+1] +' position');
+        console.log("check")
        }
     }   
 }
