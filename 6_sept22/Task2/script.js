@@ -3,7 +3,7 @@
 // Sample numbers : 0, -1, 4
 // Output : 4, 0, -1
 
-// let arr=[0,-1,4];
+let arr=[0,-1,4];
 
 
 for(let i=0;i<arr.length;i++){
