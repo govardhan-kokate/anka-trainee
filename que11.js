@@ -15,7 +15,7 @@ function addArray2(arry){
         add = add + arry[i];
         i++;
     }
-    console.log("(recursion) add of "+arry+" = "+add);
+        console.log("(recursion) add of "+arry+" = "+add);
 }
 function addArray1(){
     let add=0;
