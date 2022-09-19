@@ -1,6 +1,7 @@
 const form = document.getElementById('form');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
+const email = document.getElementById('email-email');
+const password = document.getElementById('password-email');
+const password2 = document.getElementById('password2-email');
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -8,8 +9,10 @@ form.addEventListener('submit', e => {
 });
 
 function checkInputs() {
+	// trim to remove the whitespaces
 	const emailValue = email.value.trim();
 	const passwordValue = password.value.trim();
+	const password2Value = password2.value.trim();
 	
 	if(emailValue === '') {
 		setErrorFor(email, 'Email cannot be blank');
@@ -27,6 +30,18 @@ function checkInputs() {
 		setErrorFor(password, 'Password cannot more than 25 characters');
 	} else {
 		setSuccessFor(password);
+	}
+	
+	if(password2Value === '') {
+		setErrorFor(password2, 'Password2 cannot be blank');
+	} else if(passwordValue !== password2Value) {
+		setErrorFor(password2, 'Passwords does not match');
+	} else if(password2Value.length < 8){
+		setErrorFor(password2, 'Password cannot less than 8 characters');
+	}else if(password2Value.length > 25){
+		setErrorFor(password2, 'Password cannot more than 25 characters');
+	}else{
+		setSuccessFor(password2);
 	}
 }
 
