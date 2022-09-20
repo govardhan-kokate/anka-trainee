@@ -1,0 +1,29 @@
+/* *{
+    background-color:rgb(170, 237, 249);
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("https://www.freepik.com/free-photos-vectors/background")
+}
+div.main{
+    width: 400px;
+    margin: 100px auto 0px auto;
+}
+h2{
+    text-align: center;
+    padding: 20px;
+    font-family : sans-serif;
+}
+div.registter{
+    background-color: rgba(0,0,0,0.5);
+    width:100%;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px soid rgba(255,255,255,0.3);
+    box-shadow:2px 2px 15px
+    rgba(255,255,255,0.3);
+    color:brown#fff;
+}
+
+   */

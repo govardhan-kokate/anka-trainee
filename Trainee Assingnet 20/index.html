@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Registration</title>
+  <link rel="stylesheet" href="style.css" />
+  <link url=(https://www.freepik.com/free-photos-vectors/background)>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+	</head>
+
+<body>
+  <form action ="#" onsubmit="return validation()">
+  <div class="col d-flex justify-content-center">
+    <div class="card col-7">
+      <div class="card-body">
+        <h1>Registration</h1>
+        <hr>
+        <div class="row mt-2">
+          <div class="col">
+            <div class="form-group ">
+              <label for="exampleInputfname" class="form-label">First Name:</label>
+              <input type="text" class="form-control" name="user" id="user" />
+              <span id="username" autocomplete="off"  class="text-danger font-width-bold"></span> 
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="exampleInputemail" class="form-label">Email:
+              </label>
+              <input type="text" autocomplete="off" class="form-control" name="emailadd" id="emailadd" />
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <div class="form-group ">
+              <label for="exampleInputfname" class="form-label">Last Name:</label>
+              <input type="text" autocomplete="off" name="lname" class="form-control" id="lname" />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="exampleInputemail" class="form-label">Mobile:
+              </label> <div class="form-group">
+                <input type="text" name="" autocomplete="off" class="form-control" id="lname" />
+
+           </div>
+        </div>
+        </div>       
+      </div>
+
+       <div class="row mt-2">
+        <div class="col">
+          <div class="form-group ">
+            <label for="exampleInputfname" class="form-label">Password:</label>
+            <input type="text" class="form-control" id="Stream1" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleInputemail" class="form-label">Conform Password:
+            </label>
+            <input type="text" class="form-control" id="emailadd" />
+          </div>
+        </div>
+      </div> 
+       <label>Gender :</label>
+      <input type="radio" name="gender" id="male" />Male
+      <input type="radio" name="gender" id="female"/> Female
+      <input type="radio" name="gender" id="other"/> Other 
+      <label for="stream"> Select Stream: </label>
+
+      <select name="stream" class="form-control" data-bs-toggle="dropdown" id="stream">
+        <option value="aerospace/aeronautical engineering">
+          Aerospace/aeronautical engineering
+        </option>
+        <option value="civil engineering">Civil engineering</option>
+        <option value="electrical engineering">
+          Electrical engineering
+        </option>
+        <option value="mechanical engineering">
+          Mechanical engineering
+        </option>
+        <option value="computer engineering">Computer engineering</option>
+      </select>
+
+      <label> Password:</label>
+      <input type="password" name="pass" id="password" placeholder="Enter Your Password" />
+
+      <br /><br />
+
+      <lebel> Confirm Password:</lebel>
+      <input type="password" name="pass" id="password2" placeholder="Confirm Your Password" />
+      <br /><br /> 
+
+      <button type="submit" autocomplet= "off"  class="btn btn-primary" value="submit">
+        Submit
+      </button>
+
+      <br /><br />
+      <button type="button" autocomplete="off" id="cancel">Cancel</button>
+    </div>
+  </div>
+  </div>
+
+</form>
+
+</body>
+
+<script src="./registration.js"></script>
+
+</html>
