@@ -1,0 +1,14 @@
+{
+  "form": [
+    {
+      "id": 1,
+      "firstname": "ashlesha",
+      "lastname": "ashture",
+      "mobileno": 8888888888,
+      "stream": "Computer engineering",
+      "email": "ashlesha@yahoo.com",
+      "password": "asdfghjk",
+      "password2": "asdfghjk"
+    }
+  ]
+}

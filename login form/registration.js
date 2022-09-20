@@ -2,8 +2,10 @@ const form = document.getElementById('form');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const mobileno = document.getElementById('mobileno');
-const stream = document.getElementById('stream');
-const radioButton = document.getElementById('radio-button');
+const strm = document.getElementsByName('strm[]');
+let stream= document.getElementById('stream');
+let streamValue = stream.value;
+const radioButton = document.getElementsByName('radio-button');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
@@ -11,7 +13,25 @@ const password2 = document.getElementById('password2');
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	checkInputs();
+	
+	//let form = {"firstname":firstnameValue,"lastname":lastnameValue}
+	//const playLoad = new FormData(form);
+	const formData = new FormData();
+	formData.append('firstname',firstname.value);
+	formData.append('lastname',lastname.value);
+	formData.append('mobileno',mobileno.value);
+
+		//console.log(...playLoad);
+		fetch('http://localhost:3000/form', {
+			method: 'PUT',
+			body: formData
+		})
+		.then((response) => response.json())
+		.then(data => console.log(data))
+		.catch(err => console.log(err));
+
 });
+
 
 function checkInputs() {
 	// trim to remove the whitespaces
@@ -47,6 +67,24 @@ function checkInputs() {
         setErrorFor(mobileno, 'mobile no. must contain 10 numbers');
     }else{
 		setSuccessFor(mobileno);
+	}
+
+	i=0;
+		if(radioButton[i].checked){
+		console.log("Gender: "+radioButton[i].value);
+		}else if(radioButton[i+1].checked){
+		console.log("Gender: "+radioButton[i+1].value);
+		}else if(radioButton[i+2].checked){
+			console.log("Gender: "+radioButton[i+2].value);
+		}else{
+			alert("select gender");
+		}
+
+
+	if(stream.value == 0){
+		alert("select one stream");
+	}else{
+		console.log(stream.value);
 	}
 
 	if(emailValue === '') {
@@ -102,3 +140,27 @@ function isText(firstname){
 function isText(lastname){
 	return /[a-zA-z]/.test(lastname);
 }
+
+
+/*
+const url = "http://localhost:3000/form";
+const formEl = document.querySelector("form");
+formEl.addEventListener("submit",async (e) => {
+	e.preventDefault();
+	const formData = new FormData(formEl);
+	const formDataSerialized = Object.fromEntries(formData);
+	const jsonObject = {
+		...formDataSerialized
+	};
+	try{
+		const response = await fetch(url, {
+			method : "POST",
+			body : JSON.stringify(jsonObject),
+		});
+		const json = await response.json();
+		console.log(json);
+	} catch(e) {
+		console.error(e);
+		alert("there is an error");
+	}
+});*/
