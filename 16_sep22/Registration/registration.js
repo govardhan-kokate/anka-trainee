@@ -6,3 +6,8 @@ const mobileNo=document.querySelector('#mobileno');
 const password=document.querySelector('#password');
 const cpassword=document.querySelector('#cpassword');
 
+console.log("check")
+
+
+
+
