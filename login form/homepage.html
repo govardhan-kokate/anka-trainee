@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link type="text/css" rel="stylesheet" href="css/common.css"/> -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+        
+    </head>
+<style>
+    .content-table {
+        border-collapse: collapse;
+        border: 1px solid #08619c;
+        border-collapse: collapse;
+        overflow: hidden;
+    }
+    .content-table thead tr{
+        background-color: #08619c;
+        color: white;
+        border-color: black;
+        text-align: left;
+        font-weight: bold;
+    }
+    .content-table th, td{
+        padding: 12px 15px;
+    }
+    .content-table tbody tr{
+        border-bottom: 1px solid rgb(196, 192, 192);
+    }
+    .content-table tbody tr:nth-of-type(even){
+        background-color: rgb(232, 245, 252);
+        color: #08619c;
+    }
+    .content-table tbody tr:last-of-type {
+        border-bottom :2px #08619c;
+    }
+    .body button{
+        background-color: #44a4e4;
+	border: 2px solid #44a4e4;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	font-family: inherit;
+	font-size: 16px;
+	padding: 10px;
+	margin-top: 20px;
+	width: 100%;
+    border-radius: 55px;
+    }
+    </style>
+    <body>
+        <table class="content-table" style="width:100%">
+            <thead>
+            <tr>
+                <th> First name </th>
+                <th> Last name </th>
+                <th> mobile no. </th>
+                <th> Gender </th>
+                <th> Stream </th>
+                <th> Email </th>
+                <th> Password </th>
+            </tr>
+        </thead>
+        </table>
+        <button class="button" type="button" id="back">BACK</button>
+    </body>
+    <script>
+        $(function() {
+            $.getJSON('http://localhost:3000/user', function(data) {
+                var tr;
+                for (var i = 0; i < data.length; i++) {
+                    tr = $('<tr/>');
+                    tr.append("<td>" + data[i].firstname + "</td>");
+                    tr.append("<td>" + data[i].lastname + "</td>");
+                    tr.append("<td>" + data[i].mobileno + "</td>");
+                    tr.append("<td>" + data[i].gender + "</td>");
+                    tr.append("<td>" + data[i].stream + "</td>");
+                    tr.append("<td>" + data[i].email + "</td>");
+                    tr.append("<td>" + data[i].password + "</td>");
+                    $('table').append(tr);
+                }
+            });
+        });
+    </script>
+    </html>

@@ -4,10 +4,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="ie=edge" />
       <title>Registration Page</title>
-      <link
+	  
+	<link rel="stylesheet" href="registration.css" />
+    <link
         href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap"
         rel="stylesheet"
-      />
+    />
     </head>
 <body>
 <div class="container">
@@ -38,9 +40,9 @@
 		</div>
         <div class="radio">
             <label for="gender">Gender</label>
-            <input type="radio" id="male" name="radio-button" value="male">Male
-            <input type="radio" id="female" name="radio-button" value="female">Female
-            <input type="radio" id="other" name="radio-button" value="other">Other
+            <input type="radio" id="male" name="gender" value="male">Male
+            <input type="radio" id="female" name="gender" value="female">Female
+            <input type="radio" id="other" name="gender" value="other">Other
         </div>
         <div class="form-control">
         <label for="stream"> Select Stream :</label>
@@ -75,20 +77,20 @@
 			<i class="fas fa-exclamation-circle"></i>
 			<small>Error message</small>
         </div>
-        <h5>Already have an account?<a href="C:\Users\user\Desktop\workspace\anka-trainee\login form\login.html">Log in</a></h5>
+        <h5>Already have an account?<a href="login.html">Log in</a></h5>
 		<button type="submit" id="submit">Submit</button>
         <button type="reset" id="cancel">cancel</button>
 	</form>
 </div>
 <div class="panels-container">
     <div class="panel left-panel">
-        <img src="C:\Users\user\Desktop\workspace\anka-trainee\login form\—Pngtree—gradient fingerprint unlock login computer_5044947.png" alt="" class="img">
+        <img src="—Pngtree—gradient fingerprint unlock login computer_5044947.png" alt="" class="img">
       </div>
     </div>
-
-
-<link rel="stylesheet" href="C:\Users\user\Desktop\workspace\anka-trainee\login form\registration.css" />
-<script src="C:\Users\user\Desktop\workspace\anka-trainee\login form\registration.js"></script>
-
 </body>
+
+<script src="registration.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </html>

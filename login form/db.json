@@ -1,14 +1,37 @@
 {
-  "form": [
+  "user": [
     {
-      "id": 1,
+      "firstname": "rutuja",
+      "lastname": "chandgude",
+      "mobileno": "9696969696",
+      "gender": "female",
+      "stream": "Mechanical engineering",
+      "email": "rutu@gmail.com",
+      "password": "6565+6+6+6",
+      "password2": "6565+6+6+6",
+      "id": 1
+    },
+    {
       "firstname": "ashlesha",
       "lastname": "ashture",
-      "mobileno": 8888888888,
-      "stream": "Computer engineering",
-      "email": "ashlesha@yahoo.com",
-      "password": "asdfghjk",
-      "password2": "asdfghjk"
+      "mobileno": "9898989898",
+      "gender": "female",
+      "stream": "Chemical engineering",
+      "email": "ashu@yahoo.com",
+      "password": "asasasas",
+      "password2": "asasasas",
+      "id": 2
+    },
+    {
+      "firstname": "anuj",
+      "lastname": "vyas",
+      "mobileno": "8585858585",
+      "gender": "male",
+      "stream": "Electrical/electronic engineering",
+      "email": "anuj@gamil.com",
+      "password": "99999999",
+      "password2": "99999999",
+      "id": 3
     }
   ]
 }

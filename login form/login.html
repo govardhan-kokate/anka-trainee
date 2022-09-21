@@ -1,49 +1,52 @@
-<html>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-      <title>Login Page</title>
-      
-<link rel="stylesheet" href="C:\Users\user\Desktop\workspace\anka-trainee\login form\login.css" />
-          <title>login page</title>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Log In</title>
+	<link rel="stylesheet" href="login.css">
+</head>
+
 <body>
-<div class="container">
-	<div class="header">
-		<h2>Login Page</h2>
+	<div class="container">
+		<div class="header">
+			<h2>Login Page</h2>
+		</div>
+		<form id="form" class="form">
+
+			<div class="form-control">
+				<label for="username">Email</label>
+				<input type="email" placeholder="enter your email address" id="email" />
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<div class="form-control">
+				<label for="username">Password</label>
+				<input type="password" placeholder="Password" id="password" />
+				<i class="fas fa-check-circle"></i>
+				<i class="fas fa-exclamation-circle"></i>
+				<small>Error message</small>
+			</div>
+			<h5>New here? <a href="registration.html">
+					Sign in</a><span class="tab"></span><a
+					href="email.html">forgot password?</a></h5>
+
+
+			<button type="submit" id="submit">Login</button>
+			<button type="reset" id="cancel">cancel</button>
+		</form>
 	</div>
-    <form id="form" class="form">
-		
-		<div class="form-control">
-			<label for="username">Email</label>
-			<input type="email" placeholder="enter your email address" id="email" />
-			<i class="fas fa-check-circle"></i>
-			<i class="fas fa-exclamation-circle"></i>
-			<small>Error message</small>
+	<div class="panels-container">
+		<div class="panel left-panel">
+			<img src="—Pngtree—social media internet technology page_6406964.png"
+				alt="" class="img">
 		</div>
-		<div class="form-control">
-			<label for="username">Password</label>
-			<input type="password" placeholder="Password" id="password"/>
-			<i class="fas fa-check-circle"></i>
-			<i class="fas fa-exclamation-circle"></i>
-			<small>Error message</small>
-		</div>
-		<h5>New here? <a href="C:\Users\user\Desktop\workspace\anka-trainee\login form\registration.html">
-			Sign in</a><span class="tab"></span><a href="C:\Users\user\Desktop\workspace\anka-trainee\login form\email.html">forgot password?</a></h5>			
-		
-		
-		<button type="submit" id="submit">Submit</button>
-        <button type="reset" id="cancel">cancel</button>
-	</form>
-</div>
-<div class="panels-container">
-    <div class="panel left-panel">
-        <img src="C:\Users\user\Desktop\workspace\anka-trainee\login form\—Pngtree—social media internet technology page_6406964.png" alt="" class="img">
-      </div>
-    </div>
-
-
-<script src="C:\Users\user\Desktop\workspace\anka-trainee\login form\login.js"></script>
+	</div>
 </body>
+
+<script src="login.js"></script>
+
 </html>
