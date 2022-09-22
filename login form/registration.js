@@ -62,10 +62,38 @@ async function checkInputs() {
 
 
 		if (stream.value == 0) {
-			alert("select one stream");
+			setErrorFor(stream, 'stream cannot be blank');
 		} else {
 			console.log(stream.value);
 		}
+
+		const emailID = document.querySelector('#email').value;
+		const object = {
+			email: emailID
+		};
+		fetch('http://localhost:3000/user')
+		.then(res => res.json())
+		.then(data => {
+				data.forEach(function(user) {
+				const userInfo = JSON.stringify(user);
+				const databaseInfo = JSON.stringify(object);
+
+				if(user.email === object.email){
+				//user.password = object.passInput;
+				console.log(22222222222);
+				setErrorFor(email, 'email already exist!!');
+				}else if(emailValue === '') {
+					setErrorFor(email, 'Email cannot be blank');
+				} else if(!isEmail(emailValue)) {
+					setErrorFor(email, 'Not a valid email');
+				} else{
+					console.log(333333333333333);
+					setSuccessFor(email);
+					return 1;
+				}
+			});
+		})
+		.catch(error => console.log('error'));
 
 		if (emailValue === '') {
 			setErrorFor(email, 'Email cannot be blank');
@@ -81,13 +109,15 @@ async function checkInputs() {
 			setErrorFor(password, 'Password cannot less than 8 characters');
 		} else if (passwordValue.length > 25) {
 			setErrorFor(password, 'Password cannot more than 25 characters');
+		} else if (!isPassword(passwordValue)) {
+			setErrorFor(password, 'password must include number,Upper,Lower And one special character');
 		} else {
 			setSuccessFor(password);
 		}
 
 		if (password2Value === '') {
 			setErrorFor(password2, 'Password2 cannot be blank');
-		} else if (passwordValue !== password2Value) {
+		} else if (passwordValue != password2Value) {
 			setErrorFor(password2, 'Passwords does not match');
 		} else if (password2Value.length < 8) {
 			setErrorFor(password2, 'Password cannot less than 8 characters');
@@ -96,11 +126,10 @@ async function checkInputs() {
 		} else {
 			setSuccessFor(password2);
 		}
-
 		
-		if (password2Value.length <= 25  && password2Value.length >= 8 && passwordValue == password2Value && password2Value != '' && passwordValue.length <= 25 && passwordValue.length >= 8 && passwordValue != '' && isEmail(emailValue) && emailValue != '' && stream.value != 0 && mobilenoValue[0]!=0 && mobilenoValue.length == 10 && mobilenoValue != '' && firstnameValue != '' && firstnameValue.length > 2 && isText(firstnameValue) && lastnameValue != '' && isText(lastnameValue)) 
+	  
+		if (isPassword(passwordValue) && password2Value.length <= 25  && password2Value.length >= 8 && passwordValue == password2Value && password2Value != '' && passwordValue.length <= 25 && passwordValue.length >= 8 && passwordValue != '' && isEmail(emailValue) && emailValue != '' && stream.value != 0 && mobilenoValue[0]!=0 && mobilenoValue.length == 10 && mobilenoValue != '' && firstnameValue != '' && firstnameValue.length > 2 && isText(firstnameValue) && lastnameValue != '' && isText(lastnameValue)) 
 		{
-	
 		const obj = {
 		firstname: firstname.value,
 		lastname: lastname.value,
@@ -108,8 +137,7 @@ async function checkInputs() {
 		gender: tempRadio,
 		stream: stream.value,
 		email: email.value,
-		password: password.value,
-		password2: password2.value
+		password: password.value
 	}
 
 		let res = await axios.post('http://localhost:3000/user', obj);
@@ -137,6 +165,9 @@ async function checkInputs() {
 
 	function isEmail(email) {
 		return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+	}
+	function isPassword(password){
+    	return /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,25}$/.test(password);
 	}
 
 	function isText(firstname) {

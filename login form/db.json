@@ -1,37 +1,46 @@
 {
   "user": [
     {
-      "firstname": "rutuja",
-      "lastname": "chandgude",
-      "mobileno": "9696969696",
-      "gender": "female",
-      "stream": "Mechanical engineering",
-      "email": "rutu@gmail.com",
-      "password": "6565+6+6+6",
-      "password2": "6565+6+6+6",
-      "id": 1
-    },
-    {
+      "id": 1,
       "firstname": "ashlesha",
       "lastname": "ashture",
       "mobileno": "9898989898",
       "gender": "female",
       "stream": "Chemical engineering",
       "email": "ashu@yahoo.com",
-      "password": "asasasas",
-      "password2": "asasasas",
-      "id": 2
+      "password": "AAaa@123"
     },
     {
+      "id": 2,
       "firstname": "anuj",
       "lastname": "vyas",
       "mobileno": "8585858585",
       "gender": "male",
       "stream": "Electrical/electronic engineering",
       "email": "anuj@gamil.com",
-      "password": "99999999",
-      "password2": "99999999",
+      "password": "Anuj@123"
+    },
+    {
+      "firstname": "GOVARDHAN",
+      "lastname": "KOKATE",
+      "mobileno": "7558589662",
+      "gender": "male",
+      "stream": "Chemical engineering",
+      "email": "govardhan.kokate@anka.co.in",
+      "password": "12345678",
+      "password2": "12345678",
       "id": 3
+    },
+    {
+      "firstname": "ASDFGHJ",
+      "lastname": "\\ZXCVBN",
+      "mobileno": "7418529630",
+      "gender": "male",
+      "stream": "Civil engineering",
+      "email": "asdfgh@sdfghjk.com",
+      "password": "ASas@123",
+      "password2": "ASas@123",
+      "id": 4
     }
   ]
 }

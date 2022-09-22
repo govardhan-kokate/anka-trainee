@@ -22,6 +22,26 @@
     .content-table th, td{
         padding: 12px 15px;
     }
+    .content-table button{
+        padding: 10px 15px;
+        font-style: italic;
+        font-weight: bold;
+        background-color: rgb(212, 233, 252);
+        border-radius: 10%;
+        border-color: #08619c;
+        border-width: 1px;
+        margin-top: 2px;
+    }
+    .content-table button:hover{
+        padding: 10px 15px;
+        font-style: italic;
+        background-color: rgb(169, 205, 247);
+    }
+    .content-table button:active{
+        padding: 10px 15px;
+        font-style: italic;
+        background-color: rgb(238, 248, 255);
+    }
     .content-table tbody tr{
         border-bottom: 1px solid rgb(196, 192, 192);
     }
@@ -32,35 +52,24 @@
     .content-table tbody tr:last-of-type {
         border-bottom :2px #08619c;
     }
-    .body button{
-        background-color: #44a4e4;
-	border: 2px solid #44a4e4;
-	border-radius: 4px;
-	color: #fff;
-	display: block;
-	font-family: inherit;
-	font-size: 16px;
-	padding: 10px;
-	margin-top: 20px;
-	width: 100%;
-    border-radius: 55px;
-    }
+    
     </style>
     <body>
         <table class="content-table" style="width:100%">
             <thead>
             <tr>
+                <th> ID </th>
                 <th> First name </th>
                 <th> Last name </th>
                 <th> mobile no. </th>
                 <th> Gender </th>
                 <th> Stream </th>
                 <th> Email </th>
-                <th> Password </th>
+                <th> Actions </th>
             </tr>
         </thead>
         </table>
-        <button class="button" type="button" id="back">BACK</button>
+       
     </body>
     <script>
         $(function() {
@@ -68,13 +77,16 @@
                 var tr;
                 for (var i = 0; i < data.length; i++) {
                     tr = $('<tr/>');
-                    tr.append("<td>" + data[i].firstname + "</td>");
-                    tr.append("<td>" + data[i].lastname + "</td>");
-                    tr.append("<td>" + data[i].mobileno + "</td>");
-                    tr.append("<td>" + data[i].gender + "</td>");
-                    tr.append("<td>" + data[i].stream + "</td>");
-                    tr.append("<td>" + data[i].email + "</td>");
-                    tr.append("<td>" + data[i].password + "</td>");
+                    tr.append("<td>" + data[i].id + "<span></span></td>");
+                    tr.append("<td>" + data[i].firstname + "<span></span></td>");
+                    tr.append("<td>" + data[i].lastname + "<span></span></td>");
+                    tr.append("<td>" + data[i].mobileno + "<span></span></td>");
+                    tr.append("<td>" + data[i].gender + "<span></span></td>");
+                    tr.append("<td>" + data[i].stream + "<span></span></td>");
+                    tr.append("<td>" + data[i].email + "<span></span></td>");
+                    tr.append("<button class='edit' type='button' id='edit'>" + "edit" + "</button>"
+                    +"<button class='button' type='button' id='delete'>" + "delete" + "</button>")
+                    // tr.append("<td>" + data[i].password + "</td>");
                     $('table').append(tr);
                 }
             });
