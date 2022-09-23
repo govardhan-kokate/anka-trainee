@@ -77,12 +77,9 @@ async function checkPassword() {
 	// trim to remove the whitespaces
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
-	console.log(000000000000);
-
     console.log(objId,  objFname)
 
 	if (passwordValue == password2Value && isPassword(passwordValue)) {
-		console.log("............");
 		const forgotData = {
 			id: objId,
 			firstname: objFname,
@@ -93,26 +90,17 @@ async function checkPassword() {
 			email: objEmail,
 			password: password.value
 		};
-
+		
 		let res = await axios.put('http://localhost:3000/user/'+objId, forgotData);
 		let data = res.data;
 		console.log(data);
-		alert("Updated Successfully!!");
+		console.log("Updated Successfully!!");
 		location.replace("login.html");
-
+		return 0;
 	} else {
 		console.log("//////////////////////");
 	}
 }
-
-// async function replace(){
-
-// 	let res = await axios.post('http://localhost:3000/user', objId);
-// 	let data = res.data;
-// 	console.log(data);
-// 	alert("Updated Successfully!!");
-// 	location.replace("login.html");
-// }
 
 function setErrorFor(input, message) {
 	const formControl = input.parentElement;

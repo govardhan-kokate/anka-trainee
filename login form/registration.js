@@ -9,6 +9,8 @@ const gender = document.getElementsByName('gender');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
+const emailID = document.querySelector('#email').value;
+let existEmail;
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -67,7 +69,7 @@ async function checkInputs() {
 			console.log(stream.value);
 		}
 
-		const emailID = document.querySelector('#email').value;
+		
 		const object = {
 			email: emailID
 		};
@@ -77,31 +79,20 @@ async function checkInputs() {
 				data.forEach(function(user) {
 				const userInfo = JSON.stringify(user);
 				const databaseInfo = JSON.stringify(object);
+				existEmail = user.email;
 
-				if(user.email === object.email){
-				//user.password = object.passInput;
-				console.log(22222222222);
+				if(user.email == object.email){
 				setErrorFor(email, 'email already exist!!');
 				}else if(emailValue === '') {
 					setErrorFor(email, 'Email cannot be blank');
 				} else if(!isEmail(emailValue)) {
 					setErrorFor(email, 'Not a valid email');
 				} else{
-					console.log(333333333333333);
 					setSuccessFor(email);
-					return 1;
 				}
 			});
 		})
 		.catch(error => console.log('error'));
-
-		if (emailValue === '') {
-			setErrorFor(email, 'Email cannot be blank');
-		} else if (!isEmail(emailValue)) {
-			setErrorFor(email, 'Not a valid email');
-		} else {
-			setSuccessFor(email);
-		}
 
 		if (passwordValue === '') {
 			setErrorFor(password, 'Password cannot be blank');
@@ -128,7 +119,7 @@ async function checkInputs() {
 		}
 		
 	  
-		if (isPassword(passwordValue) && password2Value.length <= 25  && password2Value.length >= 8 && passwordValue == password2Value && password2Value != '' && passwordValue.length <= 25 && passwordValue.length >= 8 && passwordValue != '' && isEmail(emailValue) && emailValue != '' && stream.value != 0 && mobilenoValue[0]!=0 && mobilenoValue.length == 10 && mobilenoValue != '' && firstnameValue != '' && firstnameValue.length > 2 && isText(firstnameValue) && lastnameValue != '' && isText(lastnameValue)) 
+		if (email.value != existEmail && isPassword(passwordValue) && password2Value.length <= 25  && password2Value.length >= 8 && passwordValue == password2Value && password2Value != '' && passwordValue.length <= 25 && passwordValue.length >= 8 && passwordValue != '' && isEmail(emailValue) && emailValue != '' && stream.value != 0 && mobilenoValue[0]!=0 && mobilenoValue.length == 10 && mobilenoValue != '' && firstnameValue != '' && firstnameValue.length > 2 && isText(firstnameValue) && lastnameValue != '' && isText(lastnameValue)) 
 		{
 		const obj = {
 		firstname: firstname.value,

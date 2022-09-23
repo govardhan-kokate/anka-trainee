@@ -1,16 +1,6 @@
 {
   "user": [
     {
-      "id": 1,
-      "firstname": "ashlesha",
-      "lastname": "ashture",
-      "mobileno": "9898989898",
-      "gender": "female",
-      "stream": "Chemical engineering",
-      "email": "ashu@yahoo.com",
-      "password": "AAaa@123"
-    },
-    {
       "id": 2,
       "firstname": "anuj",
       "lastname": "vyas",
@@ -21,25 +11,23 @@
       "password": "Anuj@123"
     },
     {
+      "id": 3,
       "firstname": "GOVARDHAN",
       "lastname": "KOKATE",
       "mobileno": "7558589662",
       "gender": "male",
       "stream": "Chemical engineering",
       "email": "govardhan.kokate@anka.co.in",
-      "password": "12345678",
-      "password2": "12345678",
-      "id": 3
+      "password": "Govardhan@1010"
     },
     {
-      "firstname": "ASDFGHJ",
-      "lastname": "\\ZXCVBN",
-      "mobileno": "7418529630",
-      "gender": "male",
-      "stream": "Civil engineering",
-      "email": "asdfgh@sdfghjk.com",
-      "password": "ASas@123",
-      "password2": "ASas@123",
+      "firstname": "Ashlesha",
+      "lastname": "Ashture",
+      "mobileno": "8885554447",
+      "gender": "female",
+      "stream": "Computer engineering",
+      "email": "ashu@yahoo.com",
+      "password": "Ashu@123",
       "id": 4
     }
   ]

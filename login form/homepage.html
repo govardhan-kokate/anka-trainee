@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- <link type="text/css" rel="stylesheet" href="css/common.css"/> -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<head>
         
-    </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        
+</head>
 <style>
     .content-table {
         border-collapse: collapse;
@@ -42,6 +46,26 @@
         font-style: italic;
         background-color: rgb(238, 248, 255);
     }
+    .content-table a{
+        padding: 10px 15px;
+        font-style: italic;
+        font-weight: bold;
+        background-color: rgb(212, 233, 252);
+        border-radius: 10%;
+        border-color: #08619c;
+        border-width: 1px;
+        margin-top: 2px;
+    }
+    .content-table a:hover{
+        padding: 10px 15px;
+        font-style: italic;
+        background-color: rgb(169, 205, 247);
+    }
+    .content-table a:active{
+        padding: 10px 15px;
+        font-style: italic;
+        background-color: rgb(238, 248, 255);
+    }
     .content-table tbody tr{
         border-bottom: 1px solid rgb(196, 192, 192);
     }
@@ -55,13 +79,13 @@
     
     </style>
     <body>
-        <table class="content-table" style="width:100%">
+        <table class="content-table" id="table" style="width:100%">
             <thead>
-            <tr>
-                <th> ID </th>
-                <th> First name </th>
-                <th> Last name </th>
-                <th> mobile no. </th>
+                <tr>
+                    <th> ID </th>
+                    <th> First name </th>
+                    <th> Last name </th>
+                    <th> mobile no. </th>
                 <th> Gender </th>
                 <th> Stream </th>
                 <th> Email </th>
@@ -69,14 +93,67 @@
             </tr>
         </thead>
         </table>
-       
-    </body>
+        <div class="overlay" id="form">
+    
+            <div class="container">
+                <div class="header">
+                    <h2>Registration Page</h2>
+                </div>
+                <form id="form" class="form">
+                    <div class="form-control">
+                        <label for="firstname">First Name</label>
+                        <input type="text" placeholder="first name" id="firstname" maxlength="50"/>
+                        
+                    </div>
+                    <div class="form-control">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" placeholder="last name" id="lastname" maxlength="50"/>
+                    
+                    <div class="form-control">
+                        <label for="mobileno">Mobile no.</label>
+                        <input type="number" placeholder="enter your mobile no." id="mobileno" maxlength="10"/>
+                        
+                    </div>
+                    <div class="radio">
+                        <label for="gender">Gender</label>
+                        <input type="radio" id="male" name="gender" value="male">Male
+                        <input type="radio" id="female" name="gender" value="female">Female
+                        <input type="radio" id="other" name="gender" value="other">Other
+                        
+                    </div>
+                    <div class="form-control">
+                    <label for="stream"> Select Stream :</label>
+                    <select name="stream" id="stream">
+                    <option value=0>--select stream--</option>
+                    <option name="strm[]" value="aeronautical engineering">aeronautical engineering</option>
+                    <option name="strm[]" value="Chemical engineering">Chemical engineering</option>
+                    <option name="strm[]" value="Civil engineering">Civil engineering</option>
+                    <option name="strm[]" value="Electrical/electronic engineering">Electrical/electronic engineering</option>
+                    <option name="strm[]" value="Mechanical engineering">Mechanical  engineering</option>
+                    <option name="strm[]" value="Computer engineering">Computer engineering</option>
+                    </select>
+                    
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Password</label>
+                        <input type="password" placeholder="Enter Password" id="password"/>
+                        
+                    </div>
+                    <button type="submit" id="submit">Submit</button>
+                    <button type="reset" id="cancel">cancel</button>
+                </form>
+            </div>
+            
+            </div>
+            </body>
     <script>
         $(function() {
             $.getJSON('http://localhost:3000/user', function(data) {
                 var tr;
+                console.log(data);
                 for (var i = 0; i < data.length; i++) {
                     tr = $('<tr/>');
+                   // tr('<tr row_id="'+row_id+'">');
                     tr.append("<td>" + data[i].id + "<span></span></td>");
                     tr.append("<td>" + data[i].firstname + "<span></span></td>");
                     tr.append("<td>" + data[i].lastname + "<span></span></td>");
@@ -84,12 +161,22 @@
                     tr.append("<td>" + data[i].gender + "<span></span></td>");
                     tr.append("<td>" + data[i].stream + "<span></span></td>");
                     tr.append("<td>" + data[i].email + "<span></span></td>");
-                    tr.append("<button class='edit' type='button' id='edit'>" + "edit" + "</button>"
-                    +"<button class='button' type='button' id='delete'>" + "delete" + "</button>")
-                    // tr.append("<td>" + data[i].password + "</td>");
+                    tr.append("<a href='#form' type='button' id='"+data[i].id+"'>" + "edit" + "</a>"
+                    +"<button class='delete' onclick='userDelete(this);' type='button' id='"+data[i].id+"'>" + "delete" + "</button>");
                     $('table').append(tr);
+                    console.log(data[i].id);
                 }
             });
         });
-    </script>
-    </html>
+         
+async function userDelete(ctl) {
+    //$(ctl).parents('tr').remove();
+    let row = $(ctl).parents(".tr");
+    console.log(row.context.id);
+    let deleteData = row.context.id;
+   let res = await axios.delete('http://localhost:3000/user/'+deleteData);
+   let status = res.status;
+}
+
+</script>
+</html>
