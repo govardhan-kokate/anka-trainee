@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-        
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+<!--         
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        
+<link rel="stylesheet" href="popup.css" />       
 </head>
 <style>
     .content-table {
@@ -34,7 +34,8 @@
         border-radius: 10%;
         border-color: #08619c;
         border-width: 1px;
-        margin-top: 2px;
+        margin-top: 4px;
+        margin-left: 3px;
     }
     .content-table button:hover{
         padding: 10px 15px;
@@ -73,10 +74,14 @@
         background-color: rgb(232, 245, 252);
         color: #08619c;
     }
+    .content-table tbody tr:nth-of-type(odd){
+        background-color: rgb(210, 234, 247);
+        color: #08619c;
+    }
     .content-table tbody tr:last-of-type {
         border-bottom :2px #08619c;
     }
-    
+   
     </style>
     <body>
         <table class="content-table" id="table" style="width:100%">
@@ -93,8 +98,10 @@
             </tr>
         </thead>
         </table>
-        <div class="overlay" id="form">
-    
+        <h5>Go back to the login page, <a href="login.html">Click here!</a></h5>
+        <img src="kisspng-avatar-user-computer-icons-5af328a7331744.1926621715258850952093.png" alt="" class="img">
+        <div class="popup">
+            <div class="close-btn" onclick="closePopup()">&times;</div>    
             <div class="container">
                 <div class="header">
                     <h2>Registration Page</h2>
@@ -103,23 +110,32 @@
                     <div class="form-control">
                         <label for="firstname">First Name</label>
                         <input type="text" placeholder="first name" id="firstname" maxlength="50"/>
-                        
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
                     <div class="form-control">
                         <label for="lastname">Last Name</label>
                         <input type="text" placeholder="last name" id="lastname" maxlength="50"/>
-                    
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
                     <div class="form-control">
                         <label for="mobileno">Mobile no.</label>
                         <input type="number" placeholder="enter your mobile no." id="mobileno" maxlength="10"/>
-                        
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
                     <div class="radio">
                         <label for="gender">Gender</label>
                         <input type="radio" id="male" name="gender" value="male">Male
                         <input type="radio" id="female" name="gender" value="female">Female
                         <input type="radio" id="other" name="gender" value="other">Other
-                        
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
                     <div class="form-control">
                     <label for="stream"> Select Stream :</label>
@@ -132,18 +148,13 @@
                     <option name="strm[]" value="Mechanical engineering">Mechanical  engineering</option>
                     <option name="strm[]" value="Computer engineering">Computer engineering</option>
                     </select>
-                    
-                    </div>
-                    <div class="form-control">
-                        <label for="username">Password</label>
-                        <input type="password" placeholder="Enter Password" id="password"/>
-                        
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
                     </div>
                     <button type="submit" id="submit">Submit</button>
-                    <button type="reset" id="cancel">cancel</button>
                 </form>
             </div>
-            
             </div>
             </body>
     <script>
@@ -154,29 +165,189 @@
                 for (var i = 0; i < data.length; i++) {
                     tr = $('<tr/>');
                    // tr('<tr row_id="'+row_id+'">');
-                    tr.append("<td>" + data[i].id + "<span></span></td>");
-                    tr.append("<td>" + data[i].firstname + "<span></span></td>");
-                    tr.append("<td>" + data[i].lastname + "<span></span></td>");
-                    tr.append("<td>" + data[i].mobileno + "<span></span></td>");
-                    tr.append("<td>" + data[i].gender + "<span></span></td>");
-                    tr.append("<td>" + data[i].stream + "<span></span></td>");
-                    tr.append("<td>" + data[i].email + "<span></span></td>");
-                    tr.append("<a href='#form' type='button' id='"+data[i].id+"'>" + "edit" + "</a>"
+                    tr.append("<td>" + data[i].id + "</td>");
+                    tr.append("<td>" + data[i].firstname + "</td>");
+                    tr.append("<td>" + data[i].lastname + "</td>");
+                    tr.append("<td>" + data[i].mobileno + "</td>");
+                    tr.append("<td>" + data[i].gender + "</td>");
+                    tr.append("<td>" + data[i].stream + "</td>");
+                    tr.append("<td>" + data[i].email + "</td>");
+                    tr.append("<button class='edit' onclick='popUp(this);' type='button' id='"+data[i].id+"'>" + "edit" + "</a>"
                     +"<button class='delete' onclick='userDelete(this);' type='button' id='"+data[i].id+"'>" + "delete" + "</button>");
                     $('table').append(tr);
                     console.log(data[i].id);
                 }
             });
         });
+
+const form = document.getElementById('form');
+const firstname = document.getElementById('firstname');
+const lastname = document.getElementById('lastname');
+const mobileno = document.getElementById('mobileno');
+const strm = document.getElementsByName('strm[]');
+let stream = document.getElementById('stream');
+let streamValue = stream.value;
+const gender = document.getElementsByName('gender');
+let tempRadio;
+let objId;
+let objFname;
+let objLname;
+let objMobno;
+let objGender;
+let objStream;
+let objEmail;
+let objPass;
+let editBtn;
+form.addEventListener('submit', e => {
+	e.preventDefault();
+	checkInputs();
+});
          
 async function userDelete(ctl) {
-    //$(ctl).parents('tr').remove();
+    var result = confirm("Do you really want to delete this profile?");
+        if (result == true) {
+        let row = $(ctl).parents(".tr");
+        console.log(row.context.id);
+        let deleteData = row.context.id;
+        let res = await axios.delete('http://localhost:3000/user/'+deleteData);
+        let status = res.status;
+		location.replace("homepage.html");
+        } else {
+            return 0;
+        }
+}
+function closePopup(){
+document.querySelector(".popup").classList.remove("active");
+}
+function popUp(ctl){
+    document.querySelector(".popup").classList.add("active");
     let row = $(ctl).parents(".tr");
     console.log(row.context.id);
-    let deleteData = row.context.id;
-   let res = await axios.delete('http://localhost:3000/user/'+deleteData);
-   let status = res.status;
+    editBtn = row.context.id;
 }
 
+function checkInputs(){
+    const firstnameValue = firstname.value.trim();
+		const lastnameValue = lastname.value.trim();
+		const mobilenoValue = mobileno.value.trim();
+    	if (firstnameValue === '') {
+			setErrorFor(firstname, 'firstname cannot be blank');
+		} else if (firstnameValue.length < 2) {
+			setErrorFor(firstname, 'firstname should contain more than 2 characters');
+		} else if (!isText(firstnameValue)) {
+			setErrorFor(firstname, 'Not a valid name');
+		} else {
+			setSuccessFor(firstname);
+		}
+
+		if (lastnameValue === '') {
+			setErrorFor(lastname, 'lastname cannot be blank');
+		} else if (!isText(lastnameValue)) {
+			setErrorFor(lastname, 'Not a valid name');
+		} else {
+			setSuccessFor(lastname);
+		}
+
+		if (mobilenoValue === '') {
+			setErrorFor(mobileno, 'mobile no. cannot be blank');
+		} else if (mobilenoValue.length != 10) {
+			setErrorFor(mobileno, 'mobile no. must contain 10 numbers');
+		}else if(mobilenoValue[0]==0){
+			setErrorFor(mobileno, 'monile no. should not start with 0');
+		} else {
+			setSuccessFor(mobileno);
+		}
+
+		for(i=0;i<=2;i++){
+		if (gender[i].checked) {
+		console.log("Gender: " + gender[i].value);
+		tempRadio = gender[i].value; 
+		}
+	}
+
+
+		if (stream.value == 0) {
+			setErrorFor(stream, 'stream cannot be blank');
+		} else {
+			console.log(stream.value);
+		}
+
+        if(stream.value != 0 && mobilenoValue[0]!=0 && mobilenoValue.length == 10 && mobilenoValue != '' && firstnameValue != '' && firstnameValue.length > 2 && isText(firstnameValue) && lastnameValue != '' && isText(lastnameValue)) 
+		{
+            let object = {
+			id: editBtn
+		};
+		fetch('http://localhost:3000/user')
+			.then(res => res.json())
+			.then(data => {
+				data.forEach(function (user) {
+                    
+					const userInfo = JSON.stringify(user);
+					const databaseInfo = JSON.stringify(object);
+
+					if (user.id == object.id) {
+					const userInfo = JSON.stringify(user);
+						console.log('success');
+						objId = user.id;
+						objFname = user.firstname;
+						objLname = user.lastname;
+						objMobno = user.mobileno;
+						objGender = user.gender;
+						objStream = user.stream;
+						objEmail = user.email;
+						objPass = user.password;
+						editData();
+                    } else {
+						console.log('error1');
+					}
+				});
+			})
+			.catch(error => console.log('error2'));
+	} else {
+		return 0;
+	}
+
+}
+
+async function editData(){
+    const firstnameValue = firstname.value.trim();
+	const lastnameValue = lastname.value.trim();
+	const mobilenoValue = mobileno.value.trim();
+    const editData = {
+			id: objId,
+			firstname: firstnameValue,
+			lastname: lastnameValue,
+			mobileno: mobilenoValue,
+			gender: tempRadio,
+			stream: stream.value,
+			email: objEmail,
+			password: objPass
+		};
+        
+		let res = await axios.put('http://localhost:3000/user/'+editBtn, editData);
+		let data = res.data;
+		console.log(data);
+		alert("Edited Successfully!!");
+		location.replace("homepage.html");
+}
+
+function setErrorFor(input, message) {
+		const formControl = input.parentElement;
+		const small = formControl.querySelector('small');
+		formControl.className = 'form-control error';
+		small.innerText = message;
+	}
+
+	function setSuccessFor(input) {
+		const formControl = input.parentElement;
+		formControl.className = 'form-control success';
+	}
+
+function isText(firstname) {
+		return /[a-zA-z]$/.test(firstname);
+	}
+	function isText(lastname) {
+		return /[a-zA-z]$/.test(lastname);
+	}
 </script>
 </html>
