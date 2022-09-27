@@ -1,3 +1,4 @@
+import ExpenseItem from 'ExpenseItem.css';
 function ExpenseItem(){
 return(
     <div>
