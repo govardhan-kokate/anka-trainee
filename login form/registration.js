@@ -17,6 +17,7 @@ form.addEventListener('submit', e => {
 	checkInputs();
 });
 
+document.getElementById('firstname').focus();
 async function checkInputs() {
 		// trim to remove the whitespaces
 		const firstnameValue = firstname.value.trim();

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--         
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -12,12 +10,14 @@
 <style>
     .content-table {
         border-collapse: collapse;
+        font-style: italic;
         border: 1px solid #08619c;
         border-collapse: collapse;
         overflow: hidden;
     }
     .content-table thead tr{
         background-color: #08619c;
+        font-style: italic;
         color: white;
         border-color: black;
         text-align: left;
@@ -34,7 +34,7 @@
         border-radius: 10%;
         border-color: #08619c;
         border-width: 1px;
-        margin-top: 4px;
+        margin-top: 3px;
         margin-left: 3px;
     }
     .content-table button:hover{
@@ -98,7 +98,7 @@
             </tr>
         </thead>
         </table>
-        <h5>Go back to the login page, <a href="login.html">Click here!</a></h5>
+        <h5><a href="login.html"><button class="login-btn"><u>Back to the Login page</u></button></a></h5>
         <img src="kisspng-avatar-user-computer-icons-5af328a7331744.1926621715258850952093.png" alt="" class="img">
         <div class="popup">
             <div class="close-btn" onclick="closePopup()">&times;</div>    
@@ -141,7 +141,7 @@
                     <label for="stream"> Select Stream :</label>
                     <select name="stream" id="stream">
                     <option value=0>--select stream--</option>
-                    <option name="strm[]" value="aeronautical engineering">aeronautical engineering</option>
+                    <option name="strm[]" value="Aeronautical engineering">Aeronautical engineering</option>
                     <option name="strm[]" value="Chemical engineering">Chemical engineering</option>
                     <option name="strm[]" value="Civil engineering">Civil engineering</option>
                     <option name="strm[]" value="Electrical/electronic engineering">Electrical/electronic engineering</option>
@@ -224,6 +224,41 @@ function popUp(ctl){
     let row = $(ctl).parents(".tr");
     console.log(row.context.id);
     editBtn = row.context.id;
+    document.getElementById('firstname').focus();
+
+    let object = {
+			id: editBtn
+		};
+		fetch('http://localhost:3000/user')
+			.then(res => res.json())
+			.then(data => {
+				data.forEach(function (user) {
+                    
+					const userInfo = JSON.stringify(user);
+					const databaseInfo = JSON.stringify(object);
+                    console.log(user.id)
+					if (user.id == object.id) {
+					const userInfo = JSON.stringify(user);
+						console.log('success');
+						objId = user.id;
+						objFname = user.firstname;
+						objLname = user.lastname;
+						objMobno = user.mobileno;
+						objGender = user.gender;
+						objStream = user.stream;
+						objEmail = user.email;
+						objPass = user.password;
+                        document.getElementById('firstname').value = objFname;
+                        document.getElementById('lastname').value = objLname;
+                        document.getElementById('mobileno').value = objMobno;
+                        document.getElementById('stream').value = objStream;     
+                        document.getElementById(objGender).checked = true;                   
+                    } else {
+						console.log('popup error1');
+					}
+				});
+			})
+			.catch(error => console.log('popup error2'));
 }
 
 function checkInputs(){
@@ -288,14 +323,6 @@ function checkInputs(){
 					if (user.id == object.id) {
 					const userInfo = JSON.stringify(user);
 						console.log('success');
-						objId = user.id;
-						objFname = user.firstname;
-						objLname = user.lastname;
-						objMobno = user.mobileno;
-						objGender = user.gender;
-						objStream = user.stream;
-						objEmail = user.email;
-						objPass = user.password;
 						editData();
                     } else {
 						console.log('error1');
@@ -310,6 +337,8 @@ function checkInputs(){
 }
 
 async function editData(){
+    var result = confirm("Do you want to Save changes?");
+    if (result == true) {
     const firstnameValue = firstname.value.trim();
 	const lastnameValue = lastname.value.trim();
 	const mobilenoValue = mobileno.value.trim();
@@ -329,6 +358,9 @@ async function editData(){
 		console.log(data);
 		alert("Edited Successfully!!");
 		location.replace("homepage.html");
+} else {
+    location.replace("homepage.html");
+}
 }
 
 function setErrorFor(input, message) {

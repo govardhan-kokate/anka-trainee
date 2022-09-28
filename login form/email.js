@@ -18,7 +18,7 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 	checkPassword();
 });
-
+document.getElementById('email-email').focus();
 function checkInputs() {
 	// trim to remove the whitespaces
 	const emailValue = email.value.trim();
@@ -51,6 +51,8 @@ function checkInputs() {
 						document.getElementById('password-email').disabled = false;
 						document.getElementById('password2-email').disabled = false;
 						document.getElementById("next").disabled = false;
+						document.getElementById("verify").disabled = true;
+						document.getElementById('password-email').focus();
 						objId = user.id;
 						objFname = user.firstname;
 						objLname = user.lastname;

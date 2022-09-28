@@ -2,21 +2,21 @@
   "user": [
     {
       "id": 2,
-      "firstname": "anuj",
-      "lastname": "vyas",
-      "mobileno": "8585858585",
+      "firstname": "Anuj",
+      "lastname": "Vyas",
+      "mobileno": "8547123698",
       "gender": "male",
-      "stream": "Electrical/electronic engineering",
+      "stream": "Chemical engineering",
       "email": "anuj@gamil.com",
       "password": "Anuj@123"
     },
     {
       "id": 3,
-      "firstname": "GOVARDHAN",
-      "lastname": "KOKATE",
-      "mobileno": "7558589662",
+      "firstname": "Govardhan",
+      "lastname": "Kokate",
+      "mobileno": "9985698569",
       "gender": "male",
-      "stream": "Chemical engineering",
+      "stream": "Aeronautical engineering",
       "email": "govardhan.kokate@anka.co.in",
       "password": "Govardhan@1010"
     },
@@ -29,6 +29,16 @@
       "email": "ashu@yahoo.com",
       "password": "Ashu@123",
       "id": 4
+    },
+    {
+      "firstname": "rutuja",
+      "lastname": "chandgude",
+      "mobileno": "8585654565",
+      "gender": "female",
+      "stream": "Mechanical engineering",
+      "email": "rutu@gmail.com",
+      "password": "Rutu@123",
+      "id": 5
     }
   ]
 }

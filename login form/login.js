@@ -6,7 +6,7 @@ form.addEventListener('submit', function(e){
 	e.preventDefault();
 	checkInputs();
 });
-
+document.getElementById('email').focus();
 function checkInputs() {
 	const emailValue = email.value.trim();
 	const passwordValue = password.value.trim();
