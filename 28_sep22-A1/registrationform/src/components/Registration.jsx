@@ -1,12 +1,26 @@
-
+import { useState } from "react";
 import "./Registration.css";
 
-const Registration = (props) =>{
-return(
+const Registration = (props) => {
+  const { label, errorMessage, onChange, id, ...inputProps } = props;
+  const [focused, setFocused] = useState(false);
+
+  const handleFocus = (e) => {
+    setFocused(true);
+  };
+
+  return (
     <div className="formInput">
-    <label>Firstname</label>
-    <input name={props.name} placeholder={props.placeholder} />
+      <label>{label}</label>
+      <input
+        {...inputProps}
+        onChange={onChange}
+        onBlur={handleFocus}
+        onFocus={() => inputProps.name === "dateofbirth" && setFocused(true)}
+        focused={focused.toString()}
+      />
+      <span>{errorMessage}</span>
     </div>
-);
-}
+  );
+};
 export default Registration;
