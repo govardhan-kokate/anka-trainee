@@ -1,0 +1,6 @@
+./node.js/node_modules/
+./node.js/package-lock.json/
+./node.js/weather-app/package-lock.json/
+./node.js/weather-app/node_modules/
+./node.js/web-server/package-lock.json/
+./node.js/web-server/node_modules/
