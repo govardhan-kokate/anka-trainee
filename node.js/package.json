@@ -9,9 +9,11 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^4.1.2",
+    "mongodb": "^4.10.0",
+    "nodemon": "^2.0.20",
     "request": "^2.88.0",
     "validator": "^13.7.0",
-    "yargs": "^17.5.1"
+    "yargs": "^17.6.0"
   },
   "devDependencies": {},
   "keywords": [],
