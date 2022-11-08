@@ -9,7 +9,9 @@ const App = () => {
     // gender: "",
     dateofbirth: "",
     // selectrole: "",
-    // checkskills: "",
+    // skill: "",
+    aboutemployee:"",
+
   });
 
   const [bio, setBio] = useState("");
@@ -69,11 +71,11 @@ const App = () => {
       required: true,
     },
     {
-      id: 4,
+      id: 5,
       name: "aboutemployee",
-      type: "date",
-      placeholder: "aboutemployee",
-      errorMessage: "select dob",
+      type: "text",
+      placeholder: "about employee",
+      errorMessage: "Write something about yourself",
       label: "About Employee",
       required: true,
     },
@@ -81,12 +83,14 @@ const App = () => {
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
-  };
 
+  };
   console.log(values);
 
+  
   const handleSubmit = (e) => {
     e.preventDafault();
+
     console.log(bio);
   };
 
@@ -157,14 +161,14 @@ const App = () => {
             <label>React</label>
           </div>
           <div className="form-check">
-            <input className="form-check-input"name="skill" value="Android" type="checkbox" id="android" />
+            <input className="form-check-input" name="skill" value="Android" type="checkbox" id="android" />
             <label>Android</label>
           </div>
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label className="form-label">About Employee </label>
           <textarea rows="3" id="textarea" placeholder="Tell us about you" onChange={onChangeHandler}/>
-        </div>
+        </div> */}
         <button>Submit</button>
       </form>
     </div>
