@@ -1,10 +1,10 @@
-import CreateEmployee from '../src/employees/CreateEmployee'
+import CreateEmployee from '../src/components/CreateEmployee'
 import './App.css';
-
 function App() {
   return (
     <div className="App">
     <CreateEmployee />
+    
     </div>
   );
 }
