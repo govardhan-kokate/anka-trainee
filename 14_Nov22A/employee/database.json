@@ -1,0 +1,70 @@
+{
+  "registration": [
+    {
+      "id": 1,
+      "firstname": "rutuja",
+      "lastname": "chandgude",
+      "dateofbirth": "04/07/2022",
+      "gender": "Female",
+      "selectstream": "Developer",
+      "skill": "React,NodeJS",
+      "selectStream": "Civil engineering",
+      "bio": "I am a Developer"
+    },
+    {
+      "id": 2,
+      "firstname": "ashlesha",
+      "lastname": "Ashture",
+      "dateofbirth": "05/07/2022",
+      "gender": "Female",
+      "selectstream": "Tester",
+      "skill": "Android",
+      "selectStream": "Civil engineering",
+      "bio": "I am a Tester"
+    },
+    {
+      "id": 3
+    },
+    {
+      "firstname": "ruchira",
+      "lastname": "chordiya",
+      "gender": "female",
+      "skill": [
+        "React",
+        "Android"
+      ],
+      "bio": "Manager",
+      "selectstream": "Manager",
+      "id": 4
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "skill": "Java"
+    },
+    {
+      "id": 2,
+      "skill": "NodeJS"
+    },
+    {
+      "id": 3,
+      "skill": "React"
+    },
+    {
+      "id": 4,
+      "skill": "Android"
+    },
+    {
+      " ": "",
+      "id": 5
+    },
+    {
+      " ": "",
+      "id": 6
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
