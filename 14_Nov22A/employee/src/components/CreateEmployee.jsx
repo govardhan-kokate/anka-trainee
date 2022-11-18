@@ -25,7 +25,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import { Paper, Grid, Avatar, TextField } from "@mui/material";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Employee = () => {
   const {
@@ -43,28 +43,32 @@ const Employee = () => {
 
   const [value, setValue] = React.useState(dayjs("2022-04-07"));
 
-  const onSubmit = (user,e) => {
+  const [roles, setRoles] = useState({});
 
+  const onSubmit = (user, e) => {
     UserData(user);
     //data.preventDefault();
-   console.log(user,e);
+    console.log(user, e);
+  };
 
- };
+  const onError = (errors, e) => console.log(errors, e);
 
-  const onError = (errors, e) =>console.log(errors, e);
-
-  const UserData=(user)=>{
-    axios.post(`http://localhost:3000/registration`, user )
-    .then(res => {
+  const UserData = (user) => {
+    axios.post(`http://localhost:3000/registration`, user).then((res) => {
       console.log(res);
       console.log(res.data);
-    })
-  }
+    });
+  };
 
+  useEffect(() => {
+    axios.get("http://localhost:3000/roles").then((res) => {
+      console.log(res.data);
+      setRoles(res.data);
+    });
+  }, []);
 
-  
   // const [skills,setSkills] = useState(" ");
-  
+
   // const SkillData=(skills)=>{
   //   axios.get(`http://localhost:3000/skills`, skills )
   //   .then(res => {
@@ -73,13 +77,11 @@ const Employee = () => {
   //   })
 
   //   skills.map(skill=>{
-  //     <FormLabel key={FormLabel.id} skill={FormLabel.skill}>                                   
+  //     <FormLabel key={FormLabel.id} skill={FormLabel.skill}>
   //     {FormLabel.skill}
   //     </FormLabel>
   //   })
   // }
-
-
 
   return (
     <Grid>
@@ -89,7 +91,7 @@ const Employee = () => {
           <h2 style={headerStyle}>Employee Data</h2>
         </Grid>
 
-        <form onSubmit={handleSubmit(onSubmit,onError)}>
+        <form onSubmit={handleSubmit(onSubmit, onError)}>
           <Grid>
             <TextField
               fullWidth
@@ -176,23 +178,7 @@ const Employee = () => {
                 </small>
               </RadioGroup>
             </FormControl>
-{/* --------------------------Dropdown-------------------------------- */}
-{/* const DropDownRole = () => {
-  const[role, setRole] = useState({});
-
-  useEffect(() => {
-    axios.get("http://localhost:3000/skills").then((res) => {
-      console.log(res.data);
-      setContents(res.data);
-    })
-  }, []);
-
-  {props.content.df?.map((s) => {
-    return <MenuItem value={s.skill}>{s.skill}</MenuItem>;
- })
- } */}
-
-
+            {/* --------------------------Dropdown-------------------------------- */}
 
             {/* <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
@@ -200,6 +186,40 @@ const Employee = () => {
                   Select Role
                 </InputLabel>
 
+                <Controller
+                  name="selectstream"
+                  id="level"
+                  defaultValue={""}
+                  control={control}
+                  render={({ field }) => (
+                    <Select
+                      labelId="level-label"
+                      {...field}
+                      {...register("selectstream", { required: true })}
+                    >
+                    { 
+                     roles.map((r)=>{
+                      <MenuItem value={r.role}>{r.role}</MenuItem>
+                     })
+                    }
+                    </Select>
+                  )}
+                />
+                <small className="invalid">
+                  {errors.selectstream?.type === "required" && (
+                    <p>Please select your Role.</p>
+                  )}
+                </small>
+              </FormControl>
+            </Box> */}
+
+
+
+             <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">
+                  Select Role
+                </InputLabel>
                 <Controller
                   name="selectstream"
                   id="level"
@@ -224,10 +244,11 @@ const Employee = () => {
                   )}
                 </small>
               </FormControl>
-            </Box> */}
+            </Box>
 
-   {/*  --------------------------------- */}
-    <FormLabel component="legend">Skill</FormLabel>
+
+            {/*  --------------------------------- */}
+            <FormLabel component="legend">Skill</FormLabel>
             <FormControlLabel
               value="Java"
               control={<Checkbox />}
@@ -257,7 +278,7 @@ const Employee = () => {
                 <p>Please select your skill.</p>
               )}
             </small>
-{/*  --------------------------------- */}
+            {/*  --------------------------------- */}
 
             <TextareaAutosize
               aria-label="minimum height"
@@ -272,12 +293,14 @@ const Employee = () => {
               )}
             </small>
           </Grid>
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="success">
             Submit
           </Button>
         </form>
       </Paper>
-    </Grid>
+   
+    <Button variant="contained" color="primary" target="_blank" href="/">Show table</Button>
+    </Grid>   
   );
 };
 export default Employee;

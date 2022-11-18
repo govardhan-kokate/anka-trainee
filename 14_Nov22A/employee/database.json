@@ -23,7 +23,28 @@
       "bio": "I am a Tester"
     },
     {
+      "firstname": "ruchira",
+      "lastname": "chordiya",
+      "gender": "female",
+      "skill": [
+        "React",
+        "Android"
+      ],
+      "bio": "Manager",
+      "selectstream": "Manager",
       "id": 3
+    },
+    {
+      "firstname": "Rutuja",
+      "lastname": "Chandgude",
+      "gender": "female",
+      "skill": [
+        "NodeJS",
+        "React"
+      ],
+      "bio": "I am a Developer",
+      "selectstream": "Manager",
+      "id": 4
     },
     {
       "firstname": "ruchira",
@@ -35,7 +56,55 @@
       ],
       "bio": "Manager",
       "selectstream": "Manager",
-      "id": 4
+      "id": 5
+    },
+    {
+      "firstname": "ruchira",
+      "lastname": "chordiya",
+      "gender": "female",
+      "skill": [
+        "React",
+        "Android"
+      ],
+      "bio": "Manager",
+      "selectstream": "Manager",
+      "id": 6
+    },
+    {
+      "firstname": "qww",
+      "lastname": "ww",
+      "gender": "female",
+      "skill": [
+        "NodeJS",
+        "React"
+      ],
+      "bio": "sdfghjkl",
+      "selectstream": "Tester",
+      "id": 7
+    },
+    {
+      "firstname": "qww",
+      "lastname": "ww",
+      "gender": "female",
+      "skill": [
+        "NodeJS",
+        "React"
+      ],
+      "bio": "sdfghjkl",
+      "selectstream": "Tester",
+      "id": 8
+    },
+    {
+      "firstname": "fvgfg",
+      "lastname": "ert",
+      "gender": "male",
+      "skill": [
+        "NodeJS",
+        "React"
+      ],
+      "bio": "hngfbdvhngf",
+      "selectstream": "Manager",
+      "id": 9
     }
   ],
   "skills": [
@@ -54,14 +123,24 @@
     {
       "id": 4,
       "skill": "Android"
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "role": "Developer"
     },
     {
-      " ": "",
-      "id": 5
+      "id": 2,
+      "role": "Tester"
     },
     {
-      " ": "",
-      "id": 6
+      "id": 3,
+      "role": "Manager"
+    },
+    {
+      "id": 4,
+      "role": "Team Leader"
     }
   ],
   "profile": {
