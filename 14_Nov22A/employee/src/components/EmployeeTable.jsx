@@ -1,59 +1,4 @@
-// import CreateEmployee from './CreateEmployee'
-// import axios from 'axios';
-// import { useState,useEffect } from 'react';
 
-// const Users =()=>{
-//     const [data,setData] = useState([]);
-//     useEffect(()=>{
-//         axios.get('http://localhost:3000/registration')
-//         .then(res=>{
-//             console.log(res.data)
-//             setData(res?.data?.data)
-//         })
-//         .catch(err =>{
-//             alert('something went wrong')
-//         })
-//     },[])
-//     return(<div>
-//       TABLE OF USERS:
-//       <table>
-//         <tr>
-//             <th>ID</th>
-//             <th>First Name</th>
-//             <th>Last Name</th>
-//             <th>Birth Date</th>
-//             <th>Gender</th>
-//             <th>Role</th>
-//             <th>Skill</th>
-//             <th>About Emp</th>
-//         </tr>{
-//             data.length > 0 && 
-//             data.map((item) =>{
-//                 return(
-//                     <tbody>
-//                         <td>{item.id}</td>
-//                         <td>{item.firstname}</td>
-//                         <td>{item.lastname}</td>
-//                         <td>{item.dateofbirth}</td>
-//                         <td>{item.gender}</td>
-//                         <td>{item.selectstream}</td>
-//                         <td>{item.skill}</td>
-//                         <td>{item.selectStream}</td>
-//                         <td>{item.bio}</td>
-
-//                     </tbody>
-//                 )
-//             })
-//         }
-//       </table>
-//         </div>)
-// }
-
-// export default Users;
-
-
-
-//-----------------------------------------------------------------------
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -66,6 +11,7 @@ import TableRow from '@mui/material/TableRow';
 
 import axios from 'axios';
 import { useState,useEffect } from 'react';
+import { Button } from '@mui/material';
 
 const Users=()=>{
 
@@ -79,6 +25,7 @@ const Users=()=>{
         { id: '6', label: 'Select Role', minWidth: 100 },  
         { id: '7', label: 'Skill', minWidth:100},
         { id: '8', label: 'About Employee', minWidth: 100 },
+        { id: '8', label: 'Action', minWidth: 100 },
       ];
       
     //   function createData(firstname, lastname, dateofbirth) {
@@ -90,12 +37,12 @@ const Users=()=>{
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [user,setUser] = useState([]);
 
-  const handleChangePage = (newPage) => {
+  const handleChangePage = (event,newPage) => {
     setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
+    setRowsPerPage(parseInt(event.target.value,10));
     setPage(0);
   };
 
@@ -109,6 +56,14 @@ const Users=()=>{
             alert('something went wrong')
         })
     },[])
+
+
+
+    const userDelete=(id,e)=>{
+    // e.preventDefault();
+    axios.delete(`http://localhost:3000/registration/${id}`).then(res=>{console.log("Deleted!!!",res)
+    this.props.history.push("/Employee");}).catch(err=>console.log(err))
+    }
 
 return (
     <div>
@@ -134,10 +89,9 @@ return (
           <TableBody>
             {user
               .slice( page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((user,index) => {
-                return (
-                  <TableRow tabIndex={-1} key={user.id}>
-                      <TableCell align="left">{user.id}</TableCell>
+              .map((user,index) =>  (
+                  <TableRow key={user.id}>
+                      <TableCell align="left">{index + 1}</TableCell>
                   <TableCell align="left">{user.firstname}</TableCell>
                   <TableCell align="left">{user.lastname}</TableCell>
                   <TableCell align="left">{user.dateofbirth}</TableCell>
@@ -145,10 +99,11 @@ return (
                   <TableCell align="left">{user.selectstream}</TableCell>
                   <TableCell align="left">{user.skill}</TableCell>
                   <TableCell align="left">{user.bio}</TableCell>
+                  <TableCell align="left" direction="row" ><Button variant="outlined" onClick={(e)=> userDelete(user.id)} className="space">Delete</Button><Button variant="contained">Update</Button></TableCell>
                   
                   </TableRow>
-                );
-              })}
+                )
+              )}
           </TableBody>
         </Table>
       </TableContainer>

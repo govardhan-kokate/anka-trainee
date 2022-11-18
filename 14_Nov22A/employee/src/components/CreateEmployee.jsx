@@ -1,7 +1,7 @@
 import React from "react";
 import dayjs from "dayjs";
 import Stack from "@mui/material/Stack";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import Button from "@mui/material/Button";
@@ -41,14 +41,33 @@ const Employee = () => {
   const headerStyle = { margin: 0 };
   const avtarStyle = { backgroundColor: "#1bbd7e" };
 
-  const [value, setValue] = React.useState(dayjs("2022-04-07"));
+  const [selectedDate, setSelectedDate] = React.useState();
 
   const [roles, setRoles] = useState({});
+  function formatDate(timestamp) {
+    let x = new Date(timestamp);
+    let DD = x.getDate();
+    let MM = x.getMonth() + 1;
+    let YYYY = x.getFullYear();
+    return YYYY + "/" + MM + "/" + DD;
+  }
 
+let req;
   const onSubmit = (user, e) => {
-    UserData(user);
-    //data.preventDefault();
-    console.log(user, e);
+    
+req={
+  firstname: user.firstname,
+  lastname:user.lastname,
+  dateofbirth: formatDate(selectedDate),
+  gender: user.gender,
+  selectstream: user.selectstream,
+  skill: user.skill,
+  selectStream:user.selectStream,
+  bio: user.bio
+}
+    UserData(req);  
+    req.preventDefault();
+    console.log(req, e);
   };
 
   const onError = (errors, e) => console.log(errors, e);
@@ -127,16 +146,44 @@ const Employee = () => {
             </small>
             <Box sx={{ m: "0.5rem" }} />
 
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <div className="form-group">
+              <LocalizationProvider dateAdapter={AdapterDateFns}>
+                <label htmlFor="dateofbirth">Date of Birth</label>
+                <Stack spacing={3}>
+                  <DesktopDatePicker
+                    // label="For desktop"
+                    inputFormat="dd/MM/yyyy"
+                   
+                    {...register("dateofbirth", { required: "DOB is Required" })}
+                    onChange={(newValue) => {
+                      console.log(newValue)
+                      setSelectedDate(newValue);
+                    }}
+                    value={selectedDate}
+                    maxDate={new Date()}
+                    renderInput={(params) => <TextField {...params} />}
+                  />
+                </Stack>
+              </LocalizationProvider>
+
+              {errors.dateofbirth && (
+                <span className="text-danger"> {errors.dateofbirth.message}</span>
+              )}
+            </div>
+
+            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
               <Stack spacing={3}>
                 <DesktopDatePicker
                   label="Birth Date"
+                  name="dateofbirth"
                   value={value}
-                  minDate={dayjs("2017-01-01")}
+                  maxDate={new Date()}
                   onChange={(newValue) => {
                     setValue(newValue);
                   }}
                   renderInput={(params) => <TextField {...params} />}
+                  {...register("dateofbirth", { required: true})}
+      
                 />
                 <small className="invalid">
                   {errors.dateofbirth?.type === "required" && (
@@ -144,7 +191,7 @@ const Employee = () => {
                   )}
                 </small>
               </Stack>
-            </LocalizationProvider>
+            </LocalizationProvider> */}
 
             <FormControl>
               <FormLabel component="legend">Gender</FormLabel>
@@ -199,7 +246,7 @@ const Employee = () => {
                     >
                     { 
                      roles.map((r)=>{
-                      <MenuItem value={r.role}>{r.role}</MenuItem>
+                      <MenuItem value={r.id}>{r.role}</MenuItem>
                      })
                     }
                     </Select>
@@ -213,9 +260,7 @@ const Employee = () => {
               </FormControl>
             </Box> */}
 
-
-
-             <Box sx={{ minWidth: 120 }}>
+            <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
                   Select Role
@@ -245,7 +290,6 @@ const Employee = () => {
                 </small>
               </FormControl>
             </Box>
-
 
             {/*  --------------------------------- */}
             <FormLabel component="legend">Skill</FormLabel>
@@ -298,9 +342,11 @@ const Employee = () => {
           </Button>
         </form>
       </Paper>
-   
-    <Button variant="contained" color="primary" target="_blank" href="/">Show table</Button>
-    </Grid>   
+
+      <Button variant="contained" color="primary" target="_blank" href="/">
+        Show table
+      </Button>
+    </Grid>
   );
 };
 export default Employee;
