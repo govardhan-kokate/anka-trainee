@@ -1,11 +1,16 @@
-import React from "react";
-import dayjs from "dayjs";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
+import { styled } from '@mui/material/styles';
+
 import Stack from "@mui/material/Stack";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -19,16 +24,34 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import EmployeeTable from './EmployeeTable';
 
 import "./CreateEmployee.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-import { Paper, Grid, Avatar, TextField } from "@mui/material";
+import { Paper, Grid, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const CreateEmployee = () => {
+
+const Item = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(1),
+  textAlign: 'center',
+}));
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  height: 550,
+  width: 500,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+export default function UpdateEmployee(props) {
   const {
     register,
     handleSubmit,
@@ -38,11 +61,7 @@ const CreateEmployee = () => {
     mode: "onTouched",
   });
 
-  const paperStyle = { padding: "38px 20px", width: 400, margin: "20px auto" };
-  const headerStyle = { margin: 0 };
-  const avtarStyle = { backgroundColor: "#1bbd7e" };
-
-  const [selectedDate, setSelectedDate] = React.useState();
+  const [selectedDate, setSelectedDate] = useState();
 
   const [roles, setRoles] = useState({});
   function formatDate(timestamp) {
@@ -51,6 +70,10 @@ const CreateEmployee = () => {
     let MM = x.getMonth() + 1;
     let YYYY = x.getFullYear();
     return YYYY + "/" + MM + "/" + DD;
+  }
+
+  const editOnClose=()=>{
+    props.onClose();
   }
 
 let req;
@@ -66,16 +89,19 @@ req={
   selectStream:user.selectStream,
   bio: user.bio
 }
-    UserData(req);  
+    UserData(req); 
+    props.onClose(); 
+   
     req.preventDefault();
     console.log(req, e);
   };
 
   const onError = (errors, e) => console.log(errors, e);
-
+//-------update data/Edit------------
   const UserData = (user) => {
-    axios.post(`http://localhost:3000/registration`, user).then((res) => {
+    axios.put(`http://localhost:3000/registration/${props.employeeData.id}`, req).then((res) => {
       console.log(res);
+      props.fetchAPI();
       console.log(res.data);
     });
   };
@@ -88,33 +114,39 @@ req={
   }, []);
 
 
-  // const [skills,setSkills] = useState(" ");
-
-  // const SkillData=(skills)=>{
-  //   axios.get(`http://localhost:3000/skills`, skills )
-  //   .then(res => {
-  //     console.log(res);
-  //     console.log(res.data);
-  //   })
-
-  //   skills.map(skill=>{
-  //     <FormLabel key={FormLabel.id} skill={FormLabel.skill}>
-  //     {FormLabel.skill}
-  //     </FormLabel>
-  //   })
-  // }
-
   return (
-    <Grid>
-      <Paper elevation={20} style={paperStyle}>
-        <Grid align="center">
-          <Avatar style={avtarStyle}></Avatar>
-          <h2 style={headerStyle}>Employee Data</h2>
-        </Grid>
+    <div>
+      {/* <Button onClick={handleOpen} variant="contained">
+      Add User
+      </Button> */}
+    
+        <Box sx={style}>
+          <Typography onClose={editOnClose} id="modal-modal-title" variant="h6" component="h2">
+            Edit User: {props.employeeData.firstname} {" "}{ props.employeeData.lastname}
+            <IconButton
+              aria-label="close"
+              sx={{
+                position: "absolute",
+                right: 8,
+                top: 8,
+                color: (theme) => theme.palette.grey[500],
+              }}
+              onClick={editOnClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {/* <CreateEmployee/> */}
+            {/* <Box className="modalBox" sx={{position: "absolute", overflowY: "scroll", maxHeight: "90%"}}> */}
+            {/* Duis mollis, est non commodo luctus, nisi erat porttitor ligula. */}
+           
+      <Box sx={{ width: '100%' }}>
 
-        <form onSubmit={handleSubmit(onSubmit, onError)}>
-          <Grid>
-            <TextField
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={6}>
+        <TextField
               fullWidth
               label="First Name"
               {...register("firstname", { required: true, minLength: 2 })}
@@ -129,8 +161,9 @@ req={
                 <p>Please enter minimun 2 char.</p>
               )}
             </small>
-
-            <Box sx={{ m: "0.5rem" }} />
+        </Grid>
+        <Grid item xs={6}>
+        <Box />
             <TextField
               fullWidth
               label="Last Name"
@@ -147,8 +180,9 @@ req={
               )}
             </small>
             <Box sx={{ m: "0.5rem" }} />
-
-            <div className="form-group">
+        </Grid>
+        <Grid item xs={12}>
+        <div className="form-group">
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <label htmlFor="dateofbirth">Date of Birth</label>
                 <Stack spacing={3}>
@@ -172,30 +206,15 @@ req={
                 <span className="text-danger"> {errors.dateofbirth.message}</span>
               )}
             </div>
-
-            {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <Stack spacing={3}>
-                <DesktopDatePicker
-                  label="Birth Date"
-                  name="dateofbirth"
-                  value={value}
-                  maxDate={new Date()}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                  {...register("dateofbirth", { required: true})}
+        </Grid>
+        <Grid item xs={0}>
+          <Item></Item>
+        </Grid>
+      </Grid>
       
-                />
-                <small className="invalid">
-                  {errors.dateofbirth?.type === "required" && (
-                    <p>Birth date is required.</p>
-                  )}
-                </small>
-              </Stack>
-            </LocalizationProvider> */}
-
-            <FormControl>
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={6}>
+        <FormControl>
               <FormLabel component="legend">Gender</FormLabel>
               <RadioGroup
                 aria-label="gender"
@@ -227,43 +246,9 @@ req={
                 </small>
               </RadioGroup>
             </FormControl>
-            {/* --------------------------Dropdown-------------------------------- */}
-
-            {/* <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">
-                  Select Role
-                </InputLabel>
-
-                <Controller
-                  name="selectstream"
-                  id="level"
-                  defaultValue={""}
-                  control={control}
-                  render={({ field }) => (
-                    <Select
-                      labelId="level-label"
-                      {...field}
-                      {...register("selectstream", { required: true })}
-                    >
-                    { 
-                     roles.map((r)=>{
-                      <MenuItem value={r.id}>{r.role}</MenuItem>
-                     })
-                    }
-                    </Select>
-                  )}
-                />
-                <small className="invalid">
-                  {errors.selectstream?.type === "required" && (
-                    <p>Please select your Role.</p>
-                  )}
-                </small>
-              </FormControl>
-            </Box> */}
-
-
-            <Box sx={{ minWidth: 120 }}>
+        </Grid>
+        <Grid item xs={6}>
+        <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">
                   Select Role
@@ -294,8 +279,9 @@ req={
               </FormControl>
             </Box>
 
-            {/*  --------------------------------- */}
-            <FormLabel component="legend">Skill</FormLabel>
+        </Grid>
+        <Grid item xs={6}>
+        <FormLabel component="legend">Skill</FormLabel>
             <FormControlLabel
               value="Java"
               control={<Checkbox />}
@@ -325,13 +311,13 @@ req={
                 <p>Please select your skill.</p>
               )}
             </small>
-            {/*  --------------------------------- */}
-
-            <TextareaAutosize
+        </Grid>
+        <Grid item xs={6}>
+        <TextareaAutosize
               aria-label="minimum height"
               minRows={3}
               placeholder="About Employee"
-              style={{ width: 395 }}
+              style={{height: 70,width:220 }}
               {...register("bio", { required: true })}
             />
             <small className="invalid">
@@ -339,13 +325,20 @@ req={
                 <p>Write something about you.</p>
               )}
             </small>
-          </Grid>
-          <Button type="submit" variant="contained" color="success">
+        </Grid>
+      </Grid>
+      <Grid item xs={6}>
+      <Button type="submit" variant="contained" color="success">
             Submit
-          </Button>
-        </form>
-      </Paper>
-    </Grid>
+        </Button>
+      </Grid>
+    
+     </form>
+    </Box>
+            {/* </Box> */}
+          </Typography>
+        </Box>
+      
+    </div>
   );
-};
-export default CreateEmployee;
+}

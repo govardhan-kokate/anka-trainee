@@ -1,15 +1,41 @@
 {
   "registration": [
     {
-      "id": 4,
-      "firstname": "ruchira",
-      "lastname": "chandgude",
-      "dateofbirth": "04/07/2022",
-      "gender": "Female",
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/4",
+      "gender": "female",
       "selectstream": "Developer",
-      "skill": "React,NodeJS",
-      "selectStream": "Civil engineering",
-      "bio": "I am a Developer"
+      "skill": [
+        "Java",
+        "React"
+      ],
+      "bio": "React and java dev",
+      "id": 1
+    },
+    {
+      "firstname": "amol",
+      "lastname": "chandgude",
+      "dateofbirth": "2022/11/2",
+      "gender": "male",
+      "selectstream": "Developer",
+      "skill": [
+        "Android"
+      ],
+      "bio": "Android developer",
+      "id": 2
+    },
+    {
+      "firstname": "Anuja",
+      "lastname": "Habib",
+      "dateofbirth": "2022/11/11",
+      "gender": "female",
+      "selectstream": "Tester",
+      "skill": [
+        "NodeJS"
+      ],
+      "bio": "NodeJs Developer",
+      "id": 3
     }
   ],
   "skills": [
