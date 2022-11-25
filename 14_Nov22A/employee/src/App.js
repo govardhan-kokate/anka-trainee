@@ -3,7 +3,6 @@ import EmployeeTable from '../src/components/EmployeeTable';
 import ResponsiveAppBar from './components/Routing/Nav';
 import {Route,Routes} from  'react-router';
 
-
 import './App.css';
 function App() {
   return (
@@ -12,8 +11,10 @@ function App() {
       {/* <div><EmployeeTable/> </div> */}
       <ResponsiveAppBar/>
       <Routes>
-         <Route path="CreateEmployee" element={<CreateEmployee/>} />
-         <Route path="EmployeeTable" element={<EmployeeTable/>} /> 
+         
+         <Route path="/CreateEmployee" element={<CreateEmployee/>} />
+         
+         <Route path="/EmployeeTable" element={<EmployeeTable/>} /> 
       </Routes>
     </div>
   );

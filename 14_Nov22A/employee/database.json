@@ -3,39 +3,182 @@
     {
       "firstname": "geet",
       "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 10
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 11
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 12
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 13
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 14
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 15
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 16
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 17
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 18
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 19
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
       "dateofbirth": "2022/11/4",
       "gender": "female",
-      "selectstream": "Developer",
+      "selectstream": "Team Leader",
       "skill": [
-        "Java",
-        "React"
+        "Java"
       ],
-      "bio": "React and java dev",
-      "id": 1
+      "bio": "Team Leader",
+      "id": 20
     },
     {
-      "firstname": "amol",
-      "lastname": "chandgude",
-      "dateofbirth": "2022/11/2",
-      "gender": "male",
-      "selectstream": "Developer",
-      "skill": [
-        "Android"
-      ],
-      "bio": "Android developer",
-      "id": 2
-    },
-    {
-      "firstname": "Anuja",
-      "lastname": "Habib",
-      "dateofbirth": "2022/11/11",
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
       "gender": "female",
-      "selectstream": "Tester",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 21
+    },
+    {
+      "firstname": "geet",
+      "lastname": "khedkar",
+      "dateofbirth": "2022/11/9",
+      "gender": "female",
+      "selectstream": "Team Leader",
+      "skill": [
+        "Java"
+      ],
+      "bio": "Team Leader",
+      "id": 22
+    },
+    {
+      "firstname": "fvgfg",
+      "lastname": "khedkar",
+      "dateofbirth": "2020/11/25",
+      "gender": "female",
+      "selectstream": "Developer",
       "skill": [
         "NodeJS"
       ],
-      "bio": "NodeJs Developer",
-      "id": 3
+      "bio": "gfdfdhyjukilo;",
+      "id": 23
+    },
+    {
+      "firstname": "fvgfg",
+      "lastname": "khedkar",
+      "dateofbirth": "2020/11/25",
+      "gender": "female",
+      "selectstream": "Developer",
+      "skill": [
+        "NodeJS"
+      ],
+      "bio": "gfdfdhyjukilo;",
+      "id": 24
     }
   ],
   "skills": [

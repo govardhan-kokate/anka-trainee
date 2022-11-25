@@ -1,5 +1,4 @@
 import React from "react";
-import dayjs from "dayjs";
 import Stack from "@mui/material/Stack";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -19,14 +18,13 @@ import TextareaAutosize from "@mui/material/TextareaAutosize";
 
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import EmployeeTable from './EmployeeTable';
 
 import "./CreateEmployee.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import { Paper, Grid, Avatar, TextField } from "@mui/material";
-import { useState, useEffect } from "react";
+import {useEffect } from "react";
 
 const CreateEmployee = () => {
   const {
@@ -44,7 +42,7 @@ const CreateEmployee = () => {
 
   const [selectedDate, setSelectedDate] = React.useState();
 
-  const [roles, setRoles] = useState({});
+  //const [roles, setRoles] = useState({});
   function formatDate(timestamp) {
     let x = new Date(timestamp);
     let DD = x.getDate();
@@ -67,7 +65,6 @@ req={
   bio: user.bio
 }
     UserData(req);  
-    req.preventDefault();
     console.log(req, e);
   };
 
@@ -83,7 +80,7 @@ req={
   useEffect(() => {
     axios.get("http://localhost:3000/roles").then((res) => {
       console.log(res.data);
-      setRoles(res.data);
+      //setRoles(res.data);
     });
   }, []);
 
@@ -153,9 +150,6 @@ req={
                 <label htmlFor="dateofbirth">Date of Birth</label>
                 <Stack spacing={3}>
                   <DesktopDatePicker
-                    // label="For desktop"
-                    // inputFormat="dd/MM/yyyy"
-                   
                     {...register("dateofbirth", { required: "DOB is Required" })}
                     onChange={(newValue) => {
                       console.log(newValue)

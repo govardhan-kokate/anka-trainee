@@ -134,7 +134,7 @@ req={
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Edit User
+           Add User
             <IconButton
               aria-label="close"
               sx={{
