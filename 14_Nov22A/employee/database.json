@@ -3,19 +3,7 @@
     {
       "firstname": "geet",
       "lastname": "khedkar",
-      "dateofbirth": "2022/11/9",
-      "gender": "female",
-      "selectstream": "Team Leader",
-      "skill": [
-        "Java"
-      ],
-      "bio": "Team Leader",
-      "id": 10
-    },
-    {
-      "firstname": "geet",
-      "lastname": "khedkar",
-      "dateofbirth": "2022/11/9",
+      "dateofbirth": "2022/11/3",
       "gender": "female",
       "selectstream": "Team Leader",
       "skill": [
@@ -123,18 +111,6 @@
     {
       "firstname": "geet",
       "lastname": "khedkar",
-      "dateofbirth": "2022/11/4",
-      "gender": "female",
-      "selectstream": "Team Leader",
-      "skill": [
-        "Java"
-      ],
-      "bio": "Team Leader",
-      "id": 20
-    },
-    {
-      "firstname": "geet",
-      "lastname": "khedkar",
       "dateofbirth": "2022/11/9",
       "gender": "female",
       "selectstream": "Team Leader",
@@ -169,15 +145,15 @@
       "id": 23
     },
     {
-      "firstname": "fvgfg",
-      "lastname": "khedkar",
-      "dateofbirth": "2020/11/25",
-      "gender": "female",
-      "selectstream": "Developer",
+      "firstname": "Garry ",
+      "lastname": "chordiya",
+      "dateofbirth": "2022/11/16",
+      "gender": "male",
+      "selectstream": "Tester",
       "skill": [
         "NodeJS"
       ],
-      "bio": "gfdfdhyjukilo;",
+      "bio": "NOdejs Tester",
       "id": 24
     }
   ],

@@ -27,6 +27,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import "./CreateEmployee.css";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import "./UpdateEmployee.css";
 
 import { Paper, Grid, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
@@ -55,7 +56,7 @@ export default function UpdateEmployee(props) {
     handleSubmit,
     setValue,
     control,
-    formState: { errors },
+    formState: {  isSubmitting, isDirty, isValid ,errors },
   } = useForm({
     mode: "onTouched",
   });
@@ -119,6 +120,10 @@ export default function UpdateEmployee(props) {
     // setOpen(true)
   };
 
+
+  useEffect(()=>{
+
+  },[]);
 
 
 return (
@@ -362,7 +367,7 @@ return (
                   type="submit"
                   variant="contained"
                   color="success"
-                  onClick={openInPopup}
+                  onClick={openInPopup} disabled={!isDirty || !isValid}
                 >
                   Submit
                  
