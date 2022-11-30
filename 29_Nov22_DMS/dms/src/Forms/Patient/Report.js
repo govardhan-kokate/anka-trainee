@@ -1,47 +1,47 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Grid from '@mui/material/Grid';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Grid from "@mui/material/Grid";
 
 const products = [
   {
-    name: 'Product 1',
-    desc: 'A nice thing',
-    price: '$9.99',
+    name: "Checkup 1",
+    desc: "First Month",
+    price: "$9.99",
   },
   {
-    name: 'Product 2',
-    desc: 'Another thing',
-    price: '$3.45',
+    name: "Checkup 2",
+    desc: "Second Month",
+    price: "$3.45",
   },
   {
-    name: 'Product 3',
-    desc: 'Something else',
-    price: '$6.51',
+    name: "Checkup 3",
+    desc: "Third Month",
+    price: "$6.51",
   },
   {
-    name: 'Product 4',
-    desc: 'Best thing of all',
-    price: '$14.11',
+    name: "Checkup 4",
+    desc: "Fourth Month",
+    price: "$14.11",
   },
-  { name: 'Shipping', desc: '', price: 'Free' },
+  { name: "Checkup", desc: "", price: "Free" },
 ];
 
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+const addresses = ["1 MUI Drive", "Reactville", "Anytown", "99999", "USA"];
+const patient = [
+  { name: "Patient type", detail: "abcd" },
+  { name: "patient Name", detail: "Mr Jolly Smith" },
+  { name: "Aadhar Card number", detail: "xxxx-xxxx-xxxx-1234" },
+  { name: "Next Checkup date", detail: "04/2024" },
 ];
 
 export default function Report() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-      Report
+        Report
       </Typography>
       <List disablePadding>
         {products.map((product) => (
@@ -61,23 +61,23 @@ export default function Report() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Shipping
+            Address
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addresses.join(', ')}</Typography>
+          <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Payment details
+            Patient details
           </Typography>
           <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
+            {patient.map((patient) => (
+              <React.Fragment key={patient.name}>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
+                  <Typography gutterBottom>{patient.name}</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
+                  <Typography gutterBottom>{patient.detail}</Typography>
                 </Grid>
               </React.Fragment>
             ))}
