@@ -78,6 +78,8 @@ export default function DoctorRegi() {
     </Toolbar>
   </AppBar> */}
 
+  <div style={{margin:"100px"}}></div>
+
       <Paper elevation={20} style={paperStyle}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
