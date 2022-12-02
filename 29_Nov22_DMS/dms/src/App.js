@@ -9,9 +9,11 @@ function App() {
   return (
     <div className="App">
       <Header/>
+   
     <DoctorRegi/>
     <PatientRegi/>
     <BabyRegi/>
+ 
     <Footer/>
     </div>
   );

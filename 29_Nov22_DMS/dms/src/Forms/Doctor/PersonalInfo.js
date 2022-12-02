@@ -5,6 +5,10 @@ import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+import RadioGroup from '@mui/material/RadioGroup';
+import FormLabel from '@mui/material/FormLabel';
+import Radio from '@mui/material/Radio';
+
 export default function PersonalInfo() {
   return (
     <React.Fragment>
@@ -34,8 +38,21 @@ export default function PersonalInfo() {
             variant="standard"
           />
         </Grid>
+        
+        <Grid item xs={6}>
+        <FormLabel id="demo-row-radio-buttons-group-label" >Gender</FormLabel>
+      <RadioGroup 
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+      >
+        <FormControlLabel value="female" control={<Radio />} label="Female" />
+        <FormControlLabel value="male" control={<Radio />} label="Male" />
+        <FormControlLabel value="other" control={<Radio />} label="Other" />
+      </RadioGroup> 
+        </Grid>
 
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           <TextField
             required
             id="gender"
@@ -45,7 +62,7 @@ export default function PersonalInfo() {
             autoComplete="Gender"
             variant="standard"
           />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} sm={6}>
           <TextField
             required

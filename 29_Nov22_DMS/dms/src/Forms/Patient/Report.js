@@ -9,22 +9,22 @@ const products = [
   {
     name: "Checkup 1",
     desc: "First Month",
-    price: "$9.99",
+    price: "$xx",
   },
   {
     name: "Checkup 2",
     desc: "Second Month",
-    price: "$3.45",
+    price: "$xx",
   },
   {
     name: "Checkup 3",
     desc: "Third Month",
-    price: "$6.51",
+    price: "$xx",
   },
   {
     name: "Checkup 4",
     desc: "Fourth Month",
-    price: "$14.11",
+    price: "$xx",
   },
   { name: "Checkup", desc: "", price: "Free" },
 ];

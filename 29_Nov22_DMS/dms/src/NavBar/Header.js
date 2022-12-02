@@ -2,6 +2,9 @@ import React,{useState} from "react";
 import { AppBar,Tabs,Tab,Toolbar,Button,useMediaQuery,useTheme, Typography} from "@mui/material";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DrawerComp from "./DrawerComp";
+// import {Link,NavLink} from "react-router-dom";
+
+
 const PAGES=["Doctor","Patient","Baby","Vaccination"];
 
 const Header = () =>{
@@ -31,7 +34,9 @@ const Header = () =>{
                       <Tab key={index} label={page} />
                       
                     ))
+                    
                   }
+
         </Tabs>
         <Button sx={{marginLeft:"auto"}} variant="contained">Login{" "}</Button>
         <Button sx={{marginLeft:'10px'}} variant="contained">SignUp{" "}</Button>

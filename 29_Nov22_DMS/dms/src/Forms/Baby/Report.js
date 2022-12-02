@@ -67,7 +67,7 @@ export default function Report() {
         </Grid>
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Patient details
+            Baby details
           </Typography>
           <Grid container>
             {patient.map((patient) => (
