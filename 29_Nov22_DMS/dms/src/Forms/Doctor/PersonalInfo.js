@@ -39,7 +39,7 @@ export default function PersonalInfo() {
           />
         </Grid>
         
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
         <FormLabel id="demo-row-radio-buttons-group-label" >Gender</FormLabel>
       <RadioGroup 
         row
@@ -50,30 +50,8 @@ export default function PersonalInfo() {
         <FormControlLabel value="male" control={<Radio />} label="Male" />
         <FormControlLabel value="other" control={<Radio />} label="Other" />
       </RadioGroup> 
-        </Grid>
-
-        {/* <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="gender"
-            name="gender"
-            label="Gender"
-            fullWidth
-            autoComplete="Gender"
-            variant="standard"
-          />
         </Grid> */}
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="age"
-            name="age"
-            label="Age"
-            fullWidth
-            autoComplete="Age"
-            variant="standard"
-          />
-        </Grid>
+
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -102,17 +80,6 @@ export default function PersonalInfo() {
             label="password"
             fullWidth
             autoComplete="password"
-            variant="standard"
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <TextField
-            required
-            id="aadharnumber"
-            label="Aadhar Number"
-            fullWidth
-            autoComplete="aadharnumber"
             variant="standard"
           />
         </Grid>

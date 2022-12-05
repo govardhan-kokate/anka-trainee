@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PatientDetails from "./PatientDetails";
 import Report from "./Report";
 import PersonalInfo from "./PersonalInfo";
+import LogoutHeader from "../../NavBar/LogoutHeader";
 
 function Copyright() {
   return (
@@ -61,6 +62,8 @@ export default function PatientRegi() {
 
   return (
     <>
+     <LogoutHeader/>
+
       {/* <AppBar
     position="absolute"
     color="default"
@@ -77,7 +80,7 @@ export default function PatientRegi() {
       </Typography>
     </Toolbar>
   </AppBar> */}
-
+       <div style={{marginTop:"15vh"}}>
       <Paper elevation={20} style={paperStyle}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -135,6 +138,7 @@ export default function PatientRegi() {
           </Container>
         </ThemeProvider>
       </Paper>
+      </div>
     </>
   );
 }

@@ -38,11 +38,11 @@ export default function PersonalInfo() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="husbandname"
-            name="husbandname"
-            label="Husband Name"
+            id="middlename"
+            name="middlename"
+            label="Middle Name"
             fullWidth
-            autoComplete="husbandname"
+            autoComplete="middlename"
             variant="standard"
           />
         </Grid>
@@ -60,7 +60,6 @@ export default function PersonalInfo() {
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
-            required
             id="emailId"
             label="Email Id"
             fullWidth

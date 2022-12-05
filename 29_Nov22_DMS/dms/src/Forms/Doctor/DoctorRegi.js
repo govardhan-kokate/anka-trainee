@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import DoctorDetails from "./DoctorDetails";
 import Report from "./Report";
 import PersonalInfo from "./PersonalInfo";
+import Header from "../../NavBar/Header";
 
 function Copyright() {
   return (
@@ -61,6 +62,8 @@ export default function DoctorRegi() {
 
   return (
     <>
+    <Header/>
+
       {/* <AppBar
     position="absolute"
     color="default"
@@ -78,7 +81,7 @@ export default function DoctorRegi() {
     </Toolbar>
   </AppBar> */}
 
-  <div style={{margin:"100px"}}></div>
+  <div style={{marginTop:"15vh"}}>
 
       <Paper elevation={20} style={paperStyle}>
         <ThemeProvider theme={theme}>
@@ -136,6 +139,7 @@ export default function DoctorRegi() {
           </Container>
         </ThemeProvider>
       </Paper>
+      </div>
     </>
   );
 }

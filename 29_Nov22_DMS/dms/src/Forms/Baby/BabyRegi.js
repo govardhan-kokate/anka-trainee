@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import BabyDetails from "./BabyDetails";
 import Report from "./Report";
 import BabyInfo from "./BabyInfo";
+import LogoutHeader from "../../NavBar/LogoutHeader";
+
 
 function Copyright() {
   return (
@@ -61,6 +63,8 @@ export default function BabyRegi() {
 
   return (
     <>
+     <LogoutHeader/>
+    
       {/* <AppBar
     position="absolute"
     color="default"
@@ -77,6 +81,8 @@ export default function BabyRegi() {
       </Typography>
     </Toolbar>
   </AppBar> */}
+
+ <div style={{marginTop:"15vh"}}>
 
       <Paper elevation={20} style={paperStyle}>
         <ThemeProvider theme={theme}>
@@ -135,6 +141,7 @@ export default function BabyRegi() {
           </Container>
         </ThemeProvider>
       </Paper>
+      </div>
     </>
   );
 }
