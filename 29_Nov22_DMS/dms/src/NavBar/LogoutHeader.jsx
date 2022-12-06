@@ -1,4 +1,3 @@
-// import React,{useState} from "react";
 import { AppBar,Toolbar,Button,useMediaQuery,useTheme, Typography} from "@mui/material";
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DrawerComp from "./DrawerComp";

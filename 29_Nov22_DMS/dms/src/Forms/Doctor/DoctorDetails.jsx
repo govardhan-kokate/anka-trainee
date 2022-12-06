@@ -4,15 +4,23 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import { useForm } from "react-hook-form";
 
 export default function DoctorDetails() {
-  const [graduation, setGraduation] = useState('');
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    mode: "onTouched",
+  });
+
+const [graduation, setGraduation] = useState('');
 const [country,setCountry]=useState([]);
 
 const handleQualification = (event) => {
@@ -40,13 +48,18 @@ useEffect(
 
         <Grid item md={6}>
         <FormControl variant="standard" sx={{minWidth: 230 }}>
-        <InputLabel id="demo-simple-select-standard-label">Qualification</InputLabel>
-        <Select
-          labelId="demo-simple-select-standard-label"
-          id="demo-simple-select-standard"
+        <InputLabel id="demo-simple-select-required-label">Qualification *</InputLabel>
+
+ 
+        <Select 
+          labelId="demo-simple-select-required-label"
+          id="demo-simple-select-required"
           value={graduation}
           onChange={handleQualification}
           label="Qualification"
+          
+          required
+          {...register("qualification",{required:true})}
         >
           <MenuItem value="">
             <em>Graduation</em>
@@ -58,10 +71,14 @@ useEffect(
           <MenuItem value={50}>DHMS</MenuItem>
         </Select>
       </FormControl>
+      <small className="invalid">
+              {errors.qualification?.type === "required" && (<p>Qualification is required.</p>)}
+            </small>
       </Grid>
 
         <Grid item xs={12} md={6}>
           <TextField
+         
             id="post-graduation"
             label="Post Graduation"
             fullWidth
@@ -80,8 +97,6 @@ useEffect(
           />
         </Grid>
      
-
-       
         <Grid item xs={12}>
           <FormControlLabel
             control={

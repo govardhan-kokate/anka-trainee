@@ -37,14 +37,14 @@ const Header = () =>{
           
         <Tabs sx={{marginLeft:"auto"}} textColor="inherit" value={value} onChange={(e,value)=>setValue(value)} indicatorColor="secondary">
         {/* <NavLink style={{textDecoration:"none", color:"white"}} to="/DoctorRegi" /> */}
-        <Tab label="Doctor" component={Link} to="/DoctorRegi" />
+        <Tab label="Dashboard" component={Link} to="/Dashboard" />
         <Tab label= "Patient" component={Link} to="/PatientRegi"/>
         <Tab label="Baby" component={Link} to="/BabyRegi"/>
         <Tab label="Vaccination" component={Link}/>
         </Tabs>
         
-        <Button sx={{marginLeft:"auto"}} variant="contained">Login{" "}</Button>
-        <Button sx={{marginLeft:'10px'}} variant="contained">SignUp{" "}</Button>
+        <Button sx={{marginLeft:"auto"}} variant="contained" component={Link} to="/DoctorLogin">Login{" "}</Button>
+        <Button sx={{marginLeft:'10px'}} variant="contained" component={Link} to="/DoctorRegi">Register{" "}</Button>
             </>
           )
         }
