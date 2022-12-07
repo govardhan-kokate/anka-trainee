@@ -105,6 +105,7 @@ export default function PersonalInfo() {
               )}
             </small>
         </Grid>
+        
         <Grid item xs={12} md={6}>
           <TextField
             required
@@ -175,6 +176,7 @@ export default function PersonalInfo() {
             }
             label="Use this information for report generation"
           />
+          
         </Grid>
       </Grid>
     </React.Fragment>
