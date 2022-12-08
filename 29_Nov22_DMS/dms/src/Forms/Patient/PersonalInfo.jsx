@@ -126,23 +126,19 @@ export default function PersonalInfo() {
         </Grid>
         <Grid item xs={12} md={6}>
         <TextField
-            required
+           
             id="emailId"
             label="Email Id"
             fullWidth
             autoComplete="emailId"
             variant="standard"
             {...register("emailid",{
-              required:true,
+             
               pattern:/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/,
               minLength: 2
               })}
           />
-           <small className="invalid">
-              {errors.emailid?.type === "required" && (
-                <p>Email id is required.</p>
-              )}
-            </small>
+      
             <small className="invalid">
               {errors.emailid?.type === "pattern" && (
                 <p>Invalid Email Id.</p>

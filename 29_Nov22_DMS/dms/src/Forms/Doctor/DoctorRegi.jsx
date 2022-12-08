@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import ReactDOM from "react-dom";
 import DoctorDetails from "./DoctorDetails";
 import Report from "./Report";
 import PersonalInfo from "./PersonalInfo";
@@ -35,6 +35,7 @@ function Copyright() {
 const steps = ["Doctor Information", "Doctor details", "Submit your Details"];
 
 function getStepContent(step) {
+
   switch (step) {
     case 0:
       return <PersonalInfo />;
@@ -50,6 +51,7 @@ function getStepContent(step) {
 const theme = createTheme();
 
 export default function DoctorRegi() {
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -62,7 +64,7 @@ export default function DoctorRegi() {
 
   const paperStyle = { padding: "10px 10px", width: 600, margin: "10px auto" };
 
-  return (
+  return (  
     <>
     <Header/>
 

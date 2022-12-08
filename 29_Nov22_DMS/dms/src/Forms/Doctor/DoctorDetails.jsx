@@ -91,7 +91,7 @@ export default function DoctorDetails() {
         <Grid item md={6}>
           <FormControl variant="standard" sx={{ minWidth: 230 }}>
             <InputLabel id="demo-simple-select-required-label">
-              MCR Number *
+             Select MCR *
             </InputLabel>
             <Controller
               name="selectmcr"

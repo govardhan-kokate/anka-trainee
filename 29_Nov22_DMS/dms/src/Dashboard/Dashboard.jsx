@@ -6,15 +6,30 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
+import { useNavigate } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import Footer from "../Footer/Footer";
 import Header from "../NavBar/Header";
+import BabyInfo from "../Forms/Baby/BabyInfo";
+import BabyRegi from "../Forms/Baby/BabyRegi";
+import PregnancyHistory from "./PregnancyHistory";
 
 const theme = createTheme();
 
 export default function Dashboard() {
   const paperStyle = { padding: "10px 10px", width: 600, margin: "10px auto" };
+  const navigate = useNavigate();
+
+  const handlePatientRegi = () => {
+      navigate("/PatientRegi");
+  }
+  const handleNewBornRegi =()=>{
+    navigate("/BabyRegi");
+  }
+  const handlePregnancyHistory=()=>{
+   navigate("/PregnancyHistory");
+  }
 
   return (
     <>
@@ -33,13 +48,15 @@ export default function Dashboard() {
                 </Typography>
                 <Grid container spacing={4}>
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained" component={Link} to="/PatientRegi">
+                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handlePatientRegi} target='_blank'>
                       Register Pregnancy{" "}
                     </Button>
+                    <div>
+                </div>
                   </Grid>
 
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained">
+                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handleNewBornRegi}>
                       Register New Born{" "}
                     </Button>
                   </Grid>
@@ -47,8 +64,8 @@ export default function Dashboard() {
 
                 <Grid container spacing={4}>
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained">
-                      Pregancy History{" "}
+                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handlePregnancyHistory}>
+                      Preganancy History{" "}
                     </Button>
                   </Grid>
 

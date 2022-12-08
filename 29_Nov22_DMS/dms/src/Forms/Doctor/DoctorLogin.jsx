@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Header from "../../NavBar/Header";
 import Footer from "../../Footer/Footer";
+import InputLabel from "@mui/material/InputLabel";
 
 function Copyright() {
   return (
@@ -27,13 +28,12 @@ function Copyright() {
 const theme = createTheme();
 
 export default function DoctorLogin() {
-
   const paperStyle = { padding: "10px 10px", width: 600, margin: "10px auto" };
 
   return (
     <>
       <Header />
-      <div style={{ marginTop: "25vh" ,marginBottom: "17vh"}}>
+      <div style={{ marginTop: "25vh", marginBottom: "17vh" }}>
         <Paper elevation={20} style={paperStyle}>
           <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -44,14 +44,20 @@ export default function DoctorLogin() {
                 sx={{ my: { xs: 3, md: 2 }, p: { xs: 2, md: 2 } }}
               >
                 <Typography component="h1" variant="h4" align="center">
-                  Doctor Login 
+                  Doctor Login
                 </Typography>
                 <Grid container spacing={3}>
                   <Grid item xs={12}>
+                    <InputLabel
+                      id="demo-simple-select-required-label"
+                      align="left"
+                    >
+                      Username *
+                    </InputLabel>
                     <TextField
-                      required
+                     
                       id="emailId"
-                      label="Enter Registered Email-id"
+                      label="xxx@xxx.xx"
                       fullWidth
                       autoComplete="emailId"
                       variant="standard"
@@ -59,25 +65,30 @@ export default function DoctorLogin() {
                   </Grid>
 
                   <Grid item xs={12}>
+                  <InputLabel id="demo-simple-select-required-label" align="left">
+                  Password *
+                  </InputLabel>
                     <TextField
-                      required
+                     
                       id="password"
+                      type="password"
                       label="password"
                       fullWidth
                       autoComplete="password"
                       variant="standard"
                     />
                   </Grid>
-                 
                 </Grid>
-                <Button sx={{marginTop:"25px"}} variant="contained">Login{" "}</Button>
+                <Button sx={{ marginTop: "25px" }} variant="contained">
+                  Login{" "}
+                </Button>
               </Paper>
               <Copyright />
             </Container>
           </ThemeProvider>
         </Paper>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
