@@ -9,6 +9,7 @@
     "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.16",
+    "@mui/styles": "^5.10.16",
     "@mui/x-date-pickers": "^5.0.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

@@ -8,6 +8,11 @@ import Home from './LandingPage/Home';
 import DoctorLogin from './Forms/Doctor/DoctorLogin'
 import {BrowserRouter, Route,Routes} from "react-router-dom";
 import Dashboard from './Dashboard/Dashboard';
+import NewBornHistory from './Forms/Baby/NewBornHistory';
+import PregnancyHistory from './Forms/Patient/PregnancyHistory';
+import AboutUs from './LandingPage/AboutUs';
+import Report from './LandingPage/Report';
+import ContactUs from './LandingPage/ContactUs';
 
 function App() {
   return (
@@ -21,8 +26,13 @@ function App() {
    <Route path="/DoctorLogin" element={<DoctorLogin/>} />
    <Route path="/Dashboard" element={<Dashboard/>} />
    <Route path="/PatientRegi" element={<PatientRegi />} />
+   <Route path="/NewBornHistory" element={<NewBornHistory/>} />
+   <Route path="PregnancyHistory" element={<PregnancyHistory/>} />
 
    <Route path="/Home" elemet={<Home/>}  /> 
+   <Route path="/AboutUs" element={<AboutUs/>} />
+   <Route path="/ContactUs" element={<ContactUs/>} />
+   <Route path="/Report" element={<Report/>}/>
 
    <Route path="/Footer" element={<Footer/>} />
    

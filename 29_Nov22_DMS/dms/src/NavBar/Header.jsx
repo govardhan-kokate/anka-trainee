@@ -3,18 +3,34 @@ import { AppBar,Tabs,Tab,Toolbar,Button,useMediaQuery,useTheme, Typography} from
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DrawerComp from "./DrawerComp";
 import {Link} from "react-router-dom";
+import {makeStyles} from "@mui/styles";
 
 // const PAGES=["Doctor","Patient","Baby","Vaccination"];
 
+const btnStyle = makeStyles({
+  button: {
+    color:'#FFFFFF',  
+    background:'linear-gradient(45deg, #3A8891 30%,  #419AA4 90%)',
+    border: 0,
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    height: 30,
+    padding: '10px 40px 10px 40px',
+  },
+});
+
 const Header = () =>{
+
+
+  const classes = btnStyle();
   const [value,setValue] = useState();
+  
   const theme = useTheme();
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   console.log(isMatch);
     return(
       <>
-       <AppBar sx={{background:"#063970"}}>
+       <AppBar sx={{background:"#0E5E6F"}}>
        <Toolbar>
         <VaccinesIcon/>
         {  isMatch ? (
@@ -37,14 +53,14 @@ const Header = () =>{
           
         <Tabs sx={{marginLeft:"auto"}} textColor="inherit" value={value} onChange={(e,value)=>setValue(value)} indicatorColor="secondary">
         {/* <NavLink style={{textDecoration:"none", color:"white"}} to="/DoctorRegi" /> */}
-        <Tab label="Dashboard" component={Link} to="/Dashboard" />
-        <Tab label= "Patient" component={Link} to="/PatientRegi"/>
-        <Tab label="Baby" component={Link} to="/BabyRegi"/>
-        <Tab label="Vaccination" component={Link}/>
+        <Tab label="Home" component={Link} to="/" />
+        <Tab label="About Us" component={Link} to="/AboutUs"/>
+        <Tab label="Contact Us" component={Link} to="/ContactUs"/>
+        <Tab label= "Report" component={Link} to="/Report"/>
         </Tabs>
         
-        <Button sx={{marginLeft:"auto"}} variant="contained" component={Link} to="/DoctorLogin">Login{" "}</Button>
-        <Button sx={{marginLeft:'10px'}} variant="contained" component={Link} to="/DoctorRegi">Register{" "}</Button>
+        <Button className={classes.button} sx={{marginLeft:"auto"}} component={Link} to="/DoctorLogin">Login{" "}</Button>
+        <Button className={classes.button} sx={{marginLeft:'10px'}} component={Link} to="/DoctorRegi">Register{" "}</Button>
             </>
           )
         }

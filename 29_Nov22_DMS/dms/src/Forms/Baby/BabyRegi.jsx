@@ -15,8 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import BabyDetails from "./BabyDetails";
 import Report from "./Report";
 import BabyInfo from "./BabyInfo";
-import LogoutHeader from "../../NavBar/LogoutHeader";
-
+import Header from "../../NavBar/Header";
 
 function Copyright() {
   return (
@@ -63,7 +62,7 @@ export default function BabyRegi() {
 
   return (
     <>
-     <LogoutHeader/>
+     <Header/>
     
       {/* <AppBar
     position="absolute"

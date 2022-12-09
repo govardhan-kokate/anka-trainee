@@ -19,6 +19,8 @@ import PersonalInfo from "./PersonalInfo";
 import Header from "../../NavBar/Header";
 import Footer from "../../Footer/Footer";
 
+import { useNavigate } from "react-router-dom";
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -51,7 +53,6 @@ function getStepContent(step) {
 const theme = createTheme();
 
 export default function DoctorRegi() {
-
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -63,6 +64,13 @@ export default function DoctorRegi() {
   };
 
   const paperStyle = { padding: "10px 10px", width: 600, margin: "10px auto" };
+
+  const navigate = useNavigate();
+  const okGoToLogin=()=>{
+    navigate("/DoctorLogin");
+   }
+ 
+
 
   return (  
     <>
@@ -98,7 +106,9 @@ export default function DoctorRegi() {
             >
               <Typography component="h1" variant="h4" align="center">
                 Doctor Registration Form
+             
               </Typography>
+              <p>Note: Medical Practitioner should register here and create their system username password.</p>
               <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
                 {steps.map((label) => (
                   <Step key={label}>
@@ -112,9 +122,10 @@ export default function DoctorRegi() {
                     Thank you for Registration.
                   </Typography>
                   <Typography variant="subtitle1">
-                    Your registration number is #2001539. We have emailed your
-                    registration confirmation.
+                    Your Registration is Successful.Your Login Credential shared with you on xxxx@gmail.com
                   </Typography>
+                  <Button variant="contained" sx={{ marginTop: "25px" }}  onClick={okGoToLogin}>
+                  ok{" "}</Button>
                 </React.Fragment>
               ) : (
                 <React.Fragment>

@@ -2,23 +2,33 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import { useNavigate } from "react-router-dom";
-
-import TextField from "@mui/material/TextField";
 import Footer from "../Footer/Footer";
 import Header from "../NavBar/Header";
-import BabyInfo from "../Forms/Baby/BabyInfo";
-import BabyRegi from "../Forms/Baby/BabyRegi";
-import PregnancyHistory from "./PregnancyHistory";
+import {makeStyles} from "@mui/styles";
 
 const theme = createTheme();
 
+const btnStyle = makeStyles({
+ button: {
+    background: 'linear-gradient(45deg, #3A8891 30%, #0E5E6F 90%)',
+    border: 0,
+    borderRadius: '4px 20px 4px 20px',
+    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    color: 'white',
+    height: 70,
+    padding: '10px 40px 10px 40px',
+  },
+});
+
 export default function Dashboard() {
+  const classes = btnStyle();
+
   const paperStyle = { padding: "10px 10px", width: 600, margin: "10px auto" };
+ 
   const navigate = useNavigate();
 
   const handlePatientRegi = () => {
@@ -31,8 +41,12 @@ export default function Dashboard() {
    navigate("/PregnancyHistory");
   }
 
+  const handleNewBornHistory=()=>{
+    navigate("/NewBornHistory");
+  }
+
   return (
-    <>
+    < >
       <Header />
       <div style={{ marginTop: "25vh", marginBottom: "17vh" }}>
         <Paper elevation={20} style={paperStyle}>
@@ -48,7 +62,7 @@ export default function Dashboard() {
                 </Typography>
                 <Grid container spacing={4}>
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handlePatientRegi} target='_blank'>
+                    <Button className={classes.button} sx={{ marginTop: "25px" }} variant="contained" onClick={handlePatientRegi} target='_blank'>
                       Register Pregnancy{" "}
                     </Button>
                     <div>
@@ -56,7 +70,7 @@ export default function Dashboard() {
                   </Grid>
 
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handleNewBornRegi}>
+                    <Button className={classes.button} sx={{ marginTop: "25px" }} variant="contained" onClick={handleNewBornRegi}>
                       Register New Born{" "}
                     </Button>
                   </Grid>
@@ -64,13 +78,13 @@ export default function Dashboard() {
 
                 <Grid container spacing={4}>
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained" onClick={handlePregnancyHistory}>
-                      Preganancy History{" "}
+                  <Button className={classes.button} sx={{ marginTop: "25px" }} variant="contained" onClick={handlePregnancyHistory}>
+                      Pregnancy History{" "}
                     </Button>
                   </Grid>
 
                   <Grid item xs={6}>
-                    <Button sx={{ marginTop: "25px" }} variant="contained">
+                    <Button className={classes.button} sx={{ marginTop: "25px" }} variant="contained" onClick={handleNewBornHistory}>
                       New Born History{" "}
                     </Button>
                   </Grid>
